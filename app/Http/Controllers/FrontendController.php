@@ -41,17 +41,17 @@ class FrontendController extends Controller
     }   
 
     public function aboutUs(){
-        return view('frontend.theme2.theme2.pages.about-us');
+        return view('frontend.theme2.pages.about-us');
     }
 
     public function contact(){
-        return view('frontend.theme2.theme2.pages.contact');
+        return view('frontend.theme2.pages.contact');
     }
 
     public function productDetail($slug){
         $product_detail= Product::getProductBySlug($slug);
         // dd($product_detail);
-        return view('frontend.theme2.theme2.pages.product_detail')->with('product_detail',$product_detail);
+        return view('frontend.theme2.pages.product_detail')->with('product_detail',$product_detail);
     }
 
     public function productGrids(){
@@ -100,7 +100,7 @@ class FrontendController extends Controller
         // Sort by name , price, category
 
       
-        return view('frontend.theme2.theme2.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
+        return view('frontend.theme2.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
     }
     public function productLists(){
         $products=Product::query();
@@ -148,7 +148,7 @@ class FrontendController extends Controller
         // Sort by name , price, category
 
       
-        return view('frontend.theme2.theme2.pages.product-lists')->with('products',$products)->with('recent_products',$recent_products);
+        return view('frontend.theme2.pages.product-lists')->with('products',$products)->with('recent_products',$recent_products);
     }
     public function productFilter(Request $request){
             $data= $request->all();
@@ -208,17 +208,17 @@ class FrontendController extends Controller
                     ->orwhere('price','like','%'.$request->search.'%')
                     ->orderBy('id','DESC')
                     ->paginate('9');
-        return view('frontend.theme2.theme2.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
+        return view('frontend.theme2.pages.product-grids')->with('products',$products)->with('recent_products',$recent_products);
     }
 
     public function productBrand(Request $request){
         $products=Brand::getProductByBrand($request->slug);
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         if(request()->is('e-shop.loc/product-grids')){
-            return view('frontend.theme2.theme2.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
         }
         else{
-            return view('frontend.theme2.theme2.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
         }
 
     }
@@ -228,10 +228,10 @@ class FrontendController extends Controller
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
         if(request()->is('e-shop.loc/product-grids')){
-            return view('frontend.theme2.theme2.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-grids')->with('products',$products->products)->with('recent_products',$recent_products);
         }
         else{
-            return view('frontend.theme2.theme2.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-lists')->with('products',$products->products)->with('recent_products',$recent_products);
         }
 
     }
@@ -241,10 +241,10 @@ class FrontendController extends Controller
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
 
         if(request()->is('e-shop.loc/product-grids')){
-            return view('frontend.theme2.theme2.pages.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
         }
         else{
-            return view('frontend.theme2.theme2.pages.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
+            return view('frontend.theme2.pages.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
         }
 
     }
@@ -277,14 +277,14 @@ class FrontendController extends Controller
         }
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        return view('frontend.theme2.theme2.pages.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.theme2.pages.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
     }
 
     public function blogDetail($slug){
         $post=Post::getPostBySlug($slug);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         // return $post;
-        return view('frontend.theme2.theme2.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.theme2.pages.blog-detail')->with('post',$post)->with('recent_posts',$rcnt_post);
     }
 
     public function blogSearch(Request $request){
@@ -297,7 +297,7 @@ class FrontendController extends Controller
             ->orwhere('slug','like','%'.$request->search.'%')
             ->orderBy('id','DESC')
             ->paginate(8);
-        return view('frontend.theme2.theme2.pages.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
+        return view('frontend.theme2.pages.blog')->with('posts',$posts)->with('recent_posts',$rcnt_post);
     }
 
     public function blogFilter(Request $request){
@@ -334,7 +334,7 @@ class FrontendController extends Controller
     public function blogByCategory(Request $request){
         $post=PostCategory::getBlogByCategory($request->slug);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        return view('frontend.theme2.theme2.pages.blog')->with('posts',$post->post)->with('recent_posts',$rcnt_post);
+        return view('frontend.theme2.pages.blog')->with('posts',$post->post)->with('recent_posts',$rcnt_post);
     }
 
     public function blogByTag(Request $request){
@@ -342,12 +342,12 @@ class FrontendController extends Controller
         $post=Post::getBlogByTag($request->slug);
         // return $post;
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        return view('frontend.theme2.theme2.pages.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
+        return view('frontend.theme2.pages.blog')->with('posts',$post)->with('recent_posts',$rcnt_post);
     }
 
     // Login
     public function login(){
-        return view('frontend.theme2.theme2.pages.login');
+        return view('frontend.theme2.pages.login');
     }
     public function loginSubmit(Request $request){
         $data= $request->all();
