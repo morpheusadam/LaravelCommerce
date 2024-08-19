@@ -1,0 +1,19 @@
+/* rtl.css */
+body {
+    direction: rtl;
+}
+
+.sidebar {
+    right: 0;
+    left: auto;
+}
+
+.navbar-nav {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.topbar .dropdown-menu {
+    right: auto;
+    left: 0;
+}
