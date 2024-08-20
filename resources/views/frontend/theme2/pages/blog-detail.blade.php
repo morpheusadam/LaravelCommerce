@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.theme2.layouts.master')
 
 @section('title','E-TECH || Blog Detail page')
 
@@ -116,7 +116,7 @@
                                 <div class="comments">
                                     <h3 class="comment-title">Comments ({{$post->allComments->count()}})</h3>
                                     <!-- Single Comment -->
-                                    @include('frontend.pages.comment', ['comments' => $post->comments, 'post_id' => $post->id, 'depth' => 3])
+                                    @include('frontend.theme2.pages.comment', ['comments' => $post->comments, 'post_id' => $post->id, 'depth' => 3])
                                     <!-- End Single Comment -->
                                 </div>
                             </div>

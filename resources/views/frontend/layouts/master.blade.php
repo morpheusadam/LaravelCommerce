@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="fa">
 <head>
 	@include('frontend.layouts.head')	
 </head>
 <body class="js">
 	
-	<!-- Preloader -->
+	<!-- پیش‌بارگذار -->
 	<div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
@@ -14,12 +14,12 @@
 			</div>
 		</div>
 	</div>
-	<!-- End Preloader -->
+	<!-- پایان پیش‌بارگذار -->
 	
 	@include('frontend.layouts.notification')
-	<!-- Header -->
+	<!-- هدر -->
 	@include('frontend.layouts.header')
-	<!--/ End Header -->
+	<!--/ پایان هدر -->
 	@yield('main-content')
 	
 	@include('frontend.layouts.footer')

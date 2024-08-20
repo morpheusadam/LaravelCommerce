@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.theme2.layouts.master')
 
 @section('title','E-SHOP || Order Track Page')
 

@@ -73,12 +73,12 @@
     Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
 
     Route::get('/cart', function () {
-        return view('frontend.pages.cart');
+        return view('frontend.theme2.pages.cart');
     })->name('cart');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user');
 // Wishlist
     Route::get('/wishlist', function () {
-        return view('frontend.pages.wishlist');
+        return view('frontend.theme2.pages.wishlist');
     })->name('wishlist');
     Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist')->middleware('user');
     Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');

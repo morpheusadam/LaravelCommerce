@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.theme2.layouts.master')
 
 @section('title','E-SHOP || About Us')
 
@@ -97,5 +97,5 @@
 	</section>
 	<!-- End Shop Services Area -->
 
-	@include('frontend.layouts.newsletter')
+	@include('frontend.theme2.layouts.newsletter')
 @endsection

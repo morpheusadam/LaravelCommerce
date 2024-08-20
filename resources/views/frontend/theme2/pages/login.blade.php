@@ -1,108 +1,71 @@
-@extends('frontend.layouts.master')
+@extends('frontend.theme2.layouts.master')
 
 @section('title','E-Shop || Login Page')
 
 @section('main-content')
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="bread-inner">
-                        <ul class="bread-list">
-                            <li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">Login</a></li>
-                        </ul>
-                    </div>
+<main class="wrapper default">
+    <div class="container">
+        <div class="row">
+            <div class="main-content login_content col-12 col-md-7 col-lg-5 mx-auto">
+                <header class="card-header">
+                    <h3 class="card-title"><span>ورود به حساب کاربری</span></h3>
+                </header>
+                <div class="login_box">
+                    <form class="form" method="post" action="{{route('login.submit')}}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> نام کاربری</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="email" name="email" placeholder="نام کاربری شما" required="required" value="{{old('email')}}">
+                                    @error('email')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> کلمه عبور</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="password" name="password" placeholder="کلمه عبور شما" required="required" value="{{old('password')}}">
+                                    @error('password')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-account-agree">
+                                    <label class="checkbox-form checkbox-primary">
+                                        <input type="checkbox" name="remember" id="agree">
+                                        <span class="checkbox-check"></span>
+                                    </label>
+                                    <label for="agree"> مرا به خاطر بسپار</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                @if (Route::has('password.request'))
+                                    <a class="faramooshi" href="{{ route('password.reset') }}">رمز عبور را فراموش کرده اید؟</a>
+                                @endif
+                            </div>
+                            <div class="col-12 text--center">
+                                <button type="submit" class="btn big_btn btn-main-masai">ورود</button>
+                            </div>
+                            <div class="col-12 footer_login_reg text--center">
+                                <p>
+                                    <span>کاربر جدید هستید؟</span>
+                                    <a href="{{route('register.form')}}">ثبت نام</a>
+                                </p>
+                            </div>
+                            <div class="col-12 text--center">
+                                <p>یا ورود با</p>
+                                <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
+                                <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
+                                <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-            
-    <!-- Shop Login -->
-    <section class="shop login section">
-        <div class="container">
-            <div class="row"> 
-                <div class="col-lg-6 offset-lg-3 col-12">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <p>Please register in order to checkout more quickly</p>
-                        <!-- Form -->
-                        <form class="form" method="post" action="{{route('login.submit')}}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
-                                        <input type="email" name="email" placeholder="" required="required" value="{{old('email')}}">
-                                        @error('email')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Password<span>*</span></label>
-                                        <input type="password" name="password" placeholder="" required="required" value="{{old('password')}}">
-                                        @error('password')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group login-btn">
-                                        <button class="btn" type="submit">Login</button>
-                                        <a href="{{route('register.form')}}" class="btn">Register</a>
-                                        OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                                        <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a>
-
-                                    </div>
-                                    <div class="checkbox">
-                                        <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Remember me</label>
-                                    </div>
-                                    @if (Route::has('password.request'))
-                                        <a class="lost-pass" href="{{ route('password.reset') }}">
-                                            Lost your password?
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                        </form>
-                        <!--/ End Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ End Login -->
-@endsection
-@push('styles')
-<style>
-    .shop.login .form .btn{
-        margin-right:0;
-    }
-    .btn-facebook{
-        background:#39579A;
-    }
-    .btn-facebook:hover{
-        background:#073088 !important;
-    }
-    .btn-github{
-        background:#444444;
-        color:white;
-    }
-    .btn-github:hover{
-        background:black !important;
-    }
-    .btn-google{
-        background:#ea4335;
-        color:white;
-    }
-    .btn-google:hover{
-        background:rgb(243, 26, 26) !important;
-    }
-</style>
-@endpush
+   
+ @endsection

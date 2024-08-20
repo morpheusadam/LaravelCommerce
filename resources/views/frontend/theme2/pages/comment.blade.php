@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    @include('frontend.pages.comment', ['comments' => $comment->replies, 'depth' => $dep])
+    @include('frontend.theme2.pages.comment', ['comments' => $comment->replies, 'depth' => $dep])
 
 </div>    
 @endforeach

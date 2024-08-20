@@ -24,21 +24,30 @@ class FrontendController extends Controller
         return redirect()->route($request->user()->role);
     }
 
+
+    public function endDate(){
+        $endDate = now()->addDays(7)->format('m d Y H:i:s');
+        dd($endDate); // برای بررسی مقدار متغیر
+        return view('frontend.theme2.layouts.product_detail', compact('endDate'));
+    }
     public function home(){
-        $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-        $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
-        // return $banner;
-        $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
-        $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
-        // return $category;
+        $featured = Product::where('status', 'active')->where('is_featured', 1)->orderBy('price', 'DESC')->limit(2)->get();
+        $posts = Post::where('status', 'active')->orderBy('id', 'DESC')->limit(3)->get();
+        $banners = Banner::where('status', 'active')->limit(3)->orderBy('id', 'DESC')->get();
+        $products = Product::where('status', 'active')->orderBy('id', 'DESC')->limit(8)->get();
+        $category = Category::where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
+        $brands = Brand::where('status', 'active')->orderBy('title', 'ASC')->get(); // خواندن برندها
+        $endDate = now()->addDays(7)->format('m d Y H:i:s');
+    
         return view('frontend.theme2.index')
-                ->with('featured',$featured)
-                ->with('posts',$posts)
-                ->with('banners',$banners)
-                ->with('product_lists',$products)
-                ->with('category_lists',$category);
-    }   
+                ->with('featured', $featured)
+                ->with('posts', $posts)
+                ->with('banners', $banners)
+                ->with('product_lists', $products)
+                ->with('category_lists', $category)
+                ->with('brands', $brands) // ارسال برندها به ویو
+                ->with('endDate', $endDate);
+    }
 
     public function aboutUs(){
         return view('frontend.theme2.pages.about-us');
@@ -51,7 +60,10 @@ class FrontendController extends Controller
     public function productDetail($slug){
         $product_detail= Product::getProductBySlug($slug);
         // dd($product_detail);
-        return view('frontend.theme2.pages.product_detail')->with('product_detail',$product_detail);
+        $endDate = now()->addDays(7)->format('m d Y H:i:s');
+        //dd($endDate); // برای بررسی مقدار متغیر
+
+        return view('frontend.theme2.pages.product_detail',compact('endDate'))->with('product_detail',$product_detail);
     }
 
     public function productGrids(){
