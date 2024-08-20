@@ -39,7 +39,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<form action="{{ route('cart.update') }}" method="POST">
+							<form action="https://www.zarinpal.com/" method="POST">
 								@csrf
 								@if(Helper::getAllProductFromCart())
 									@foreach(Helper::getAllProductFromCart() as $key => $cart)
@@ -75,7 +75,7 @@
 									@endforeach
 									<tr>
 										<td colspan="5" class="text-right">
-											<button class="btn btn-second-masai" type="submit">به روز رسانی</button>
+											<button class="btn btn-second-masai" type="submit">پرداخت</button>
 										</td>
 									</tr>
 								@else

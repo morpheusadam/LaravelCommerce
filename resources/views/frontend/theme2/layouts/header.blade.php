@@ -155,36 +155,25 @@
                         </ul>
                     </div>
                 </li>
-                <li class="list_style">
-                    <i class="fa fa-film icon-icon" aria-hidden="true"></i><a href="#" class="list__link">دمو محصولات</a>
+
+                
+                 
+                           
+                         
+                <li class="list_style {{ Request::path() == 'home' ? 'active' : '' }}">
+                    <i class="fa fa-home icon-icon" aria-hidden="true"></i><a href="{{ route('home') }}" class="list__link">خانه</a>
                 </li>
-                <li class="list_style">
-                    <i class="fa fa-percent icon-icon" aria-hidden="true"></i><a href="#" class="list__link">تخفیفات و پیشنهادات</a>
+                <li class="list_style {{ Request::path() == 'about-us' ? 'active' : '' }}">
+                    <i class="fa fa-info-circle icon-icon" aria-hidden="true"></i><a href="{{ route('about-us') }}" class="list__link">درباره ما</a>
                 </li>
-                <li class="list_style">
-                    <i class="fa fa-user-secret icon-icon" aria-hidden="true"></i><a href="#" class="list__link">مَسای امن</a>
+                <li class="list_style {{ Request::path() == 'blog' ? 'active' : '' }}">
+                    <i class="fa fa-blog icon-icon" aria-hidden="true"></i><a href="{{ route('blog') }}" class="list__link">بلاگ</a>
                 </li>
-                <li class="list_style">
-                    <i class="fa fa-plus icon-icon" aria-hidden="true"></i><a href="#" class="list__link">مَسای پلاس</a>
+                <li class="list_style {{ Request::path() == 'contact' ? 'active' : '' }}">
+                    <i class="fa fa-phone icon-icon" aria-hidden="true"></i><a href="{{ route('contact') }}" class="list__link">تماس با ما</a>
                 </li>
-                <li class="list_style">
-                    <i class="fa fa-link icon-icon" aria-hidden="true"></i><a href="#" class="list__link">مَسای کلاب</a>
-                </li>
-                <li class="list_style">
-                    <i class="fa fa-handshake-o icon-icon icon-color-2" aria-hidden="true"></i><a href="#" class="list__link">مَسای پی</a>
-                </li>
-                <li class="list_style">
-                    <a href="#" class="list__link">سوالی دارید؟</a>
-                </li>
-                <li class="list_style">
-                    <a href="#" class="list__link">فروشنده شوید</a>
-                </li>
-                <ul class="nav_header-2">
-                    <li class="list_style">
-                        <i class="fa fa-map icon-icon" aria-hidden="true"></i>
-                        <a href="order-address.html" class="list__link">انتخاب موقعیت</a>
-                    </li>
-                </ul>
+               
+                
             </ul>
         </nav>
     </header>
