@@ -168,6 +168,9 @@
                 <li class="list_style {{ Request::path() == 'home' ? 'active' : '' }}">
                     <i class="fa fa-home icon-icon" aria-hidden="true"></i><a href="{{ route('home') }}" class="list__link">خانه</a>
                 </li>
+                <li class="list_style {{ Request::path() == 'product-grids' ? 'active' : '' }}">
+                    <i class="fa fa-home icon-icon" aria-hidden="true"></i><a href="{{ route('product-grids') }}" class="list__link">فروشگاه</a>
+                </li>
                 <li class="list_style {{ Request::path() == 'about-us' ? 'active' : '' }}">
                     <i class="fa fa-info-circle icon-icon" aria-hidden="true"></i><a href="{{ route('about-us') }}" class="list__link">درباره ما</a>
                 </li>

@@ -39,7 +39,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<form action="https://www.zarinpal.com/" method="POST">
+							<form action="{{ route('place-order') }}" method="POST">
 								@csrf
 								@if(Helper::getAllProductFromCart())
 									@foreach(Helper::getAllProductFromCart() as $key => $cart)
