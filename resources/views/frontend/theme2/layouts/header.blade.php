@@ -101,7 +101,12 @@
                                         @endphp
                                         <li class="m_cart_li1">
                                             <a href="{{ route('product-detail', $data->product['slug']) }}" class="m_cart-item">
-                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                <form action="{{ route('cart-delete', $data->id) }}" method="GET" style="display:inline;">
+                                                    @csrf
+                                                    <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
                                                 <div class="m_cart-item-content">
                                                     <div class="m_cart-item-image">
                                                         <img src="{{ $photo[0] }}" />

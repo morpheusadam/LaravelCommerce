@@ -304,4 +304,40 @@ class OrderController extends Controller
         }
         return $data;
     }
+
+
+
+    //add order
+    public function placeOrder(Request $request)
+    {
+        $user = auth()->user();
+        $cartItems = Cart::where('user_id', $user->id)->where('order_id', null)->get();
+
+        if ($cartItems->isEmpty()) {
+            return back()->with('error', 'سبد خرید شما خالی است.');
+        }
+
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->total_amount = $cartItems->sum('amount');
+        $order->status = 'pending';
+        $order->save();
+
+        foreach ($cartItems as $item) {
+            $item->order_id = $order->id;
+            $item->save();
+        }
+
+        session()->forget('cart');
+        session()->forget('coupon');
+
+        return redirect()->route('order.success')->with('success', 'سفارش شما با موفقیت ثبت شد.');
+    }
+
+    public function orderSuccess()
+    {
+        return view('frontend.theme2.pages.order-success');
+    }
+}
+
 }

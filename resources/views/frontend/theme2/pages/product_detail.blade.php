@@ -242,8 +242,7 @@
                         <div class="box-tabs default">
                             <ul class="nav" role="tablist">
                                 <li class="box-tabs-tab">
-                                    <a class="active " data-toggle="tab" href="#desc" role="tab"
-                                        aria-expanded="true">
+                                    <a class="active" data-toggle="tab" href="#desc" role="tab" aria-expanded="true">
                                         توضیحات تکمیلی
                                     </a>
                                 </li>
@@ -258,8 +257,7 @@
                                     </a>
                                 </li>
                                 <li class="box-tabs-tab">
-                                    <a data-toggle="tab" href="#comments_questions" role="tab"
-                                        aria-expanded="false">
+                                    <a data-toggle="tab" href="#comments_questions" role="tab" aria-expanded="false">
                                         پرسش و نظر
                                     </a>
                                 </li>
@@ -267,173 +265,95 @@
                             <div class="card-body default">
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="desc" role="tabpanel"
-                                        aria-expanded="true">
-
+                                    <div class="tab-pane active" id="desc" role="tabpanel" aria-expanded="true">
                                         <header class="card-header">
-                                            <h3 class="card-title"><span>بررسی تخصصی {{ $product_detail->title }}
-                                                </span></h3>
+                                            <h3 class="card-title"><span>بررسی تخصصی {{ $product_detail->title }}</span></h3>
                                         </header>
                                         <div class="parent-expert default">
                                             <div class="content-expert">
-                                                <p>
-                                                    {!! $product_detail->description !!}
-                                                </p>
+                                                <p>{!! $product_detail->description !!}</p>
                                             </div>
                                         </div>
-
-
                                     </div>
-                                    <div class="tab-pane params" id="params" role="tabpanel"
-                                        aria-expanded="false">
+                                    <div class="tab-pane params" id="params" role="tabpanel" aria-expanded="false">
                                         <header class="card-header">
-                                            <h3 class="card-title"><span>بررسی تخصصی گوشی
-                                                    {{ $product_detail->title }}</span></h3>
+                                            <h3 class="card-title"><span>بررسی تخصصی {{ $product_detail->title }}</span></h3>
                                         </header>
-
                                         <div class="col-12">
-                                            <ul class="list-group ">
+                                            <ul class="list-group">
                                                 {!! $product_detail->summary !!}
-
-
-
                                             </ul>
-
-
                                         </div>
-
-
-
-
                                     </div>
-
-
-
-
-
-
-
                                     <div class="tab-pane" id="comments" role="tabpanel" aria-expanded="false">
-
                                         <header class="card-header">
                                             <h3 class="card-title"><span>دیدگاه های دیگر کاربران</span></h3>
                                         </header>
                                         <div class="comments_form default">
                                             <ol class="comment-list">
-
-                                                <!-- #comment-## -->
                                                 @foreach ($product_detail->getReview as $data)
                                                     <li>
                                                         <div class="comment-body">
                                                             <div class="comment-author">
                                                                 @if (!empty($data->user_info->photo))
-                                                                    <img alt="{{ $data->user_info->name }}"
-                                                                        src="{{ $data->user_info->photo }}"
-                                                                        class="avatar">
+                                                                    <img alt="{{ $data->user_info->name }}" src="{{ $data->user_info->photo }}" class="avatar">
                                                                 @else
-                                                                    <img alt="{{ $data->user_info->name }}"
-                                                                        src="{{ asset('backend/img/avatar.png') }}"
-                                                                        class="avatar">
+                                                                    <img alt="{{ $data->user_info->name }}" src="{{ asset('backend/img/avatar.png') }}" class="avatar">
                                                                 @endif
-                                                                <span
-                                                                    class="rating-circle">{{ ceil($data->rate) }}</span>
-
-                                                                <div class="text-h5">{{ $data->user_info->name }}
-                                                                </div>
+                                                                <span class="rating-circle">{{ ceil($data->rate) }}</span>
+                                                                <div class="text-h5">{{ $data->user_info->name }}</div>
                                                             </div>
                                                             <p>{{ $data->review }}</p>
                                                             <ul class="commentul">
-                                                                <li>{{ \Carbon\Carbon::parse($data->created_at)->format('d M Y') }}
-                                                                </li>
+                                                                <li>{{ \Carbon\Carbon::parse($data->created_at)->format('d M Y') }}</li>
                                                                 <li>{{ $data->user_info->name }}</li>
-
                                                             </ul>
                                                         </div>
                                                     </li>
                                                 @endforeach
-                                                <style>
-                                                    .rating-circle {
-                                                        display: inline-block;
-                                                        background-color: #46a9ae;
-                                                        color: white;
-                                                        border-radius: 50%;
-                                                        padding: 10px;
-                                                        margin-right: 10px;
-                                                        text-align: center;
-                                                        width: 40px;
-                                                        height: 40px;
-                                                        line-height: 20px;
-                                                        /* Adjust this value to vertically center the text */
-                                                    }
-                                                </style>
-
-
-
                                             </ol>
                                         </div>
-
                                     </div>
-
-
-
-
-
-
-                                </div>
-                                <div class="tab-pane form-comment" id="comments_questions" role="tabpanel"
-                                    aria-expanded="false">
-                                    <header class="card-header">
-                                        <h3 class="card-title"><span>ارسال نظر و پرسش</span></h3>
-                                    </header>
-
-                                    <form class="form" method="post"
-                                        action="{{ route('review.store', $product_detail->slug) }}">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-lg-12 col-12">
-                                                <div class="rating_box">
-                                                    <div class="star-rating">
-                                                        <div class="star-rating__wrap">
-                                                            <input class="star-rating__input" id="star-rating-5"
-                                                                type="radio" name="rate" value="5">
-                                                            <label class="star-rating__ico" for="star-rating-5"
-                                                                title="5 out of 5 stars">5</label>
-                                                            <input class="star-rating__input" id="star-rating-4"
-                                                                type="radio" name="rate" value="4">
-                                                            <label class="star-rating__ico" for="star-rating-4"
-                                                                title="4 out of 5 stars">4</label>
-                                                            <input class="star-rating__input" id="star-rating-3"
-                                                                type="radio" name="rate" value="3">
-                                                            <label class="star-rating__ico" for="star-rating-3"
-                                                                title="3 out of 5 stars">3</label>
-                                                            <input class="star-rating__input" id="star-rating-2"
-                                                                type="radio" name="rate" value="2">
-                                                            <label class="star-rating__ico" for="star-rating-2"
-                                                                title="2 out of 5 stars">2</label>
-                                                            <input class="star-rating__input" id="star-rating-1"
-                                                                type="radio" name="rate" value="1">
-                                                            <label class="star-rating__ico" for="star-rating-1"
-                                                                title="1 out of 5 stars">1</label>
-                                                            @error('rate')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                    <div class="tab-pane form-comment" id="comments_questions" role="tabpanel" aria-expanded="false">
+                                        <header class="card-header">
+                                            <h3 class="card-title"><span>ارسال نظر و پرسش</span></h3>
+                                        </header>
+                                        @auth
+                                        <form class="form" method="post" action="{{ route('review.store', $product_detail->slug) }}">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-lg-12 col-12">
+                                                    <div class="rating_box">
+                                                        <div class="star-rating">
+                                                            <div class="star-rating__wrap">
+                                                                @for ($i = 5; $i >= 1; $i--)
+                                                                    <input class="star-rating__input" id="star-rating-{{ $i }}" type="radio" name="rate" value="{{ $i }}">
+                                                                    <label class="star-rating__ico" for="star-rating-{{ $i }}" title="{{ $i }} out of 5 stars">{{ $i }}</label>
+                                                                @endfor
+                                                                @error('rate')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-12 col-12">
-                                                <div class="form-group">
-                                                    <label>از یک تا پنج به این محصول چقد نمره میدهید؟</label>
-                                                    <textarea name="review" rows="6" placeholder=""></textarea>
+                                                <div class="col-lg-12 col-12">
+                                                    <div class="form-group">
+                                                        <label>از یک تا پنج به این محصول چقد نمره میدهید؟</label>
+                                                        <textarea name="review" rows="6" placeholder=""></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-12">
+                                                    <div class="form-group button5">
+                                                        <button class="btn btn-main-masai">ارسال برای تایید</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12 col-12">
-                                                <div class="form-group button5">
-                                                    <button class="btn btn-main-masai">ارسال برای تایید</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                        @else
+                                        <p>برای ارسال نظر لطفا <a href="{{ route('login') }}">وارد شوید</a>.</p>
+                                        @endauth
+                                    </div>
                                 </div>
                             </div>
                         </div>
