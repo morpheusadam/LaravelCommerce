@@ -36,7 +36,8 @@
                 @if(is_array($categories) || is_object($categories))
                     @foreach($categories as $cat)
                     <li>
-                        <a href="#">  {{$cat->title}}</a>
+                        <a href="{{ route('product-cat', $cat->slug) }}">  {{$cat->title}}</a>
+
                     </li>
                     @endforeach
                 @endif
@@ -62,13 +63,13 @@
                         <div class="search-bar-top">
                             <div class="search-bar">
                                 <select>
-                                    <option>همه دسته‌بندی‌ها</option>
                                     @if(is_array($categories) || is_object($categories))
                                         @foreach($categories as $cat)
-                                            <option>{{$cat->title}}</option>
-                                        @endforeach
+                                        <a href="{{ route('product-cat', $cat->slug) }}" target="_blank">                                        @endforeach
                                     @endif
                                 </select>
+                                
+                             
                                 <form method="POST" action="{{ route('product.search') }}" class="search">
                                     @csrf
                                     <input name="search" placeholder="جستجو" type="search">
@@ -153,9 +154,11 @@
                             <li class="child_mno-drobdown">
                                 @if(is_array($categories) || is_object($categories))
                                     @foreach($categories as $cat)
-                                        <a href="#" class="run">  {{$cat->title}}    </a>
+                                        <a href="{{ route('product-cat', $cat->slug) }}" class="run category-item">  {{$cat->title}}    </a>
                                     @endforeach
                                 @endif
+                               
+
                             </li>
                         </ul>
                     </div>

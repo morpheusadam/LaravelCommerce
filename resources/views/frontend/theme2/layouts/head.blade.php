@@ -8,3 +8,5 @@
 <link href="{{ asset('frontend/theme1/assets/css/plugins/owl.theme.default.min.css') }}" rel="stylesheet" />
 <link href="{{ asset('frontend/theme1/assets/css/main.css') }}" rel="stylesheet" />
 <link href="{{ asset('frontend/theme1/assets/css/style.css') }}" rel="stylesheet" />
+
+

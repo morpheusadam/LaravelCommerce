@@ -316,7 +316,7 @@
                         @if($brands)
                             @foreach($brands as $brand)
                                 <div class="item borderitem">
-                                    <a href="#" style="font-size: 24px; font-weight: bold; text-align: center; display: block; padding: 20px;">
+                                    <a href="{{ route('product-brand', $brand->slug) }}" style="font-size: 24px; font-weight: bold; text-align: center; display: block; padding: 20px;">
                                         {{ $brand->title }}
                                     </a>
                                 </div>

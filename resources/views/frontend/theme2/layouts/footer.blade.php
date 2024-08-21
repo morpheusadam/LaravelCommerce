@@ -48,51 +48,37 @@
                             <h3 class="card-title">درباره ما</h3>
                         </div>
                         <p class="about_footer">
-                            قالب مَسای یک پکیج کامل ایرانی با هدف بی نهایت قالب HTML و WordPress و به روز رسانی همیشگی
-                            است، که تمام ویژگی های لازم طراحی سایت را در نظر میگیرد
+                            فروشگاه ورزشی تک اسپورت یک وبسایت کامل ایرانی با هدف ارائه بهترین محصولات ورزشی و به روز رسانی همیشگی
+                            است، که تمام ویژگی های لازم برای خرید آنلاین را در نظر می‌گیرد
                         </p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="widget-menu widget card">
                         <div class="card-header">
-                            <h3 class="card-title">خدمات مشتریان</h3>
+                            <h3 class="card-title">دسترسی سریع </h3>
                         </div>
                         <ul class="footer-menu">
-                            <li>
-                                <a href="#">ارسال فوری</a>
-                            </li>
-                            <li>
-                                <a href="#">پشتیبانی سریع</a>
-                            </li>
-                            <li>
-                                <a href="#">بازگشت وجه</a>
-                            </li>
-                            <li>
-                                <a href="#">بسته بندی کالا</a>
-                            </li>
+                            <li><a href="{{route('about-us')}}">درباره ما</a></li>
+								<li><a href="#">سوالات متداول</a></li>
+								<li><a href="#">شرایط و ضوابط</a></li>
+								<li><a href="{{route('contact')}}">تماس با ما</a></li>
+								<li><a href="#">کمک</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="widget-menu widget card">
                         <div class="card-header">
-                            <h3 class="card-title">با مَسای شاپ</h3>
+                            <h3 class="card-title">با  تک اسپورت </h3>
                         </div>
                         <ul class="footer-menu">
 
-                            <li>
-                                <a href="#">تامین کالا همکار</a>
-                            </li>
-                            <li>
-                                <a href="#">تخفیف سازمانی</a>
-                            </li>
-                            <li>
-                                <a href="#">تماس با ما</a>
-                            </li>
-                            <li>
-                                <a href="#">درباره ما</a>
-                            </li>
+                            <li><a href="#">روش‌های پرداخت</a></li>
+                            <li><a href="#">بازگشت وجه</a></li>
+                            <li><a href="#">بازگشت کالا</a></li>
+                            <li><a href="#">حمل و نقل</a></li>
+                            <li><a href="#">سیاست حفظ حریم خصوصی</a></li>
                         </ul>
                     </div>
                 </div>
@@ -102,6 +88,7 @@
                             <h3 class="card-title">مجوزات</h3>
                         </div>
                         <div class="License_img">
+                            
                             <a href="#" target="_blank"><img
                                     src="{{ asset('frontend/theme1/assets/img/License_2.png') }}" alt=""></a>
                             <a href="#" target="_blank"><img
