@@ -41,36 +41,58 @@
                             <h3 class="card-title"><span class="space-right-10">قیمت</span></h3>
                         </header>
                         <div class="box-content space-40 space-right-25 space-left-25">
-                            <div id="slider-range" data-min="0" data-max="{{ DB::table('products')->max('price') }}"></div>
                             <div class="product_filter">
-                                <button type="submit" class="filter_button">Filter</button>
                                 <div class="label-input">
-                                    <span>Range:</span>
-                                    <input style="" type="text" id="amount" readonly />
-                                    <input type="hidden" name="price_range" id="price_range" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif" />
+                                    <span> رنج قیمت </span>
+                                    <div>
+                                        <input type="radio" id="price1" name="price_range" value="1-5000000" @if(!empty($_GET['price']) && $_GET['price'] == '1-5000000') checked @endif>
+                                        <label for="price1">1 تا 5 میلیون</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="price2" name="price_range" value="5000000-10000000" @if(!empty($_GET['price']) && $_GET['price'] == '5000000-10000000') checked @endif>
+                                        <label for="price2">5 تا 10 میلیون</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="price3" name="price_range" value="10000000-15000000" @if(!empty($_GET['price']) && $_GET['price'] == '10000000-15000000') checked @endif>
+                                        <label for="price3">10 تا 15 میلیون</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="price4" name="price_range" value="15000000-30000000" @if(!empty($_GET['price']) && $_GET['price'] == '15000000-30000000') checked @endif>
+                                        <label for="price4">15 تا 30 میلیون</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="price5" name="price_range" value="30000000-60000000" @if(!empty($_GET['price']) && $_GET['price'] == '30000000-60000000') checked @endif>
+                                        <label for="price5">30 تا 60 میلیون</label>
+                                    </div>
+                                    <button type="submit" class="filter_button">اعمال</button>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
                     <div class="box">
                         <header class="card-header">
                             <h3 class="card-title"><span class="space-right-10">دسته بندی ها</span></h3>
                         </header>
                         <div class="box-content">
                             <ul class="categor-list">
-                                @if($menu)
-                                    @foreach($menu as $cat_info)
-                                        <li>
-                                            <a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a>
-                                            @if($cat_info->child_cat->count() > 0)
-                                                <ul>
-                                                    @foreach($cat_info->child_cat as $sub_menu)
-                                                        <li><a href="{{route('product-sub-cat',[$cat_info->slug,$sub_menu->slug])}}">{{$sub_menu->title}}</a></li>
-                                                    @endforeach
-                                                </ul>
+                                @if ($menu)
+                                    <li>
+                                        @foreach ($menu as $cat_info)
+                                            @if ($cat_info->child_cat->count() > 0)
+                                                <li><a href="{{ route('product-cat', $cat_info->slug) }}">{{ $cat_info->title }}</a>
+                                                    <ul>
+                                                        @foreach ($cat_info->child_cat as $sub_menu)
+                                                            <li><a href="{{ route('product-sub-cat', [$cat_info->slug, $sub_menu->slug]) }}">{{ $sub_menu->title }}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @else
+                                                <li><a href="{{ route('product-cat', $cat_info->slug) }}">{{ $cat_info->title }}</a></li>
                                             @endif
-                                        </li>
-                                    @endforeach
+                                        @endforeach
+                                    </li>
                                 @endif
                             </ul>
                         </div>
@@ -90,7 +112,32 @@
                             </ul>
                         </div>
                     </div>
-                </form>
+                    <div class="box">
+                        <header class="card-header">
+                            <h3 class="card-title"><span class="space-right-10">پست‌های اخیر</span></h3>
+                        </header>
+                        <div class="box-content">
+                            @if($recent_products->isNotEmpty())
+                            @php 
+                                $product = $recent_products->first();
+                                $photo = explode(',', $product->photo);
+                            @endphp
+                            <div class="single-post first">
+                                <div class="image">
+                                    <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
+                                </div>
+                                <div class="content">
+                                    <h5><a href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a></h5>
+                                    @php
+                                        $org = ($product->price - ($product->price * $product->discount) / 100);
+                                    @endphp
+                                    <p class="price"><del class="text-muted">${{ number_format($product->price, 2) }}</del> ${{ number_format($org, 2) }}</p>
+                                </div>
+                            </div>
+                        @endif
+                        </div>
+                    </div>
+  
             </aside>
             <div class="col-12 col-sm-12 col-md-8 col-lg-9">
                 <div class="listing default">
@@ -125,9 +172,6 @@
                                                 @if (!empty($photos))
                                                     <img class="main_img_gallery" src="{{ $photos[0] }}" alt="{{ $product->title }}">
                                                 @endif
-                                                <ul>
-                                                         <li class="color_pro" style="background-color:  ;top: 7px;"></li>
-                                                 </ul>
                                             </a>
                                             <div class="product-box-content">
                                                 <div class="product-box-content-row">
