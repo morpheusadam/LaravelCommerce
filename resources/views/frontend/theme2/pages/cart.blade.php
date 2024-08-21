@@ -1,5 +1,5 @@
 @extends('frontend.theme2.layouts.master')
-@section('title','Cart Page')
+@section('title','تک اسپورت ||   سبد خرید ')
 @section('main-content')
 <main class="cart-page default space-top-30">
 	<div class="container">

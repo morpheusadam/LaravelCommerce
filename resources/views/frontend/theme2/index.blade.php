@@ -1,4 +1,5 @@
 @extends('frontend.theme2.layouts.master')
+@section('title','تک اسپورت || صفحه اصلی')
 
 @section('main-content')
     <main class="main default space-top-10">
@@ -32,29 +33,28 @@
             <div class="row space-bottom-30">
                 <div class="col-sm-6">
                     <div class="row">
-                        <div class=" col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/1.png" class="minilogo_w">
-                                <b class="title-3 light-black">مَسای مارکت</b>
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/1.png') }}" class="minilogo_w">
+                                <b class="title-3 light-black">تک اسپورت مارکت</b>
                             </div>
                         </div>
-                        <div class="col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/2.png" class="minilogo_w">
-                                <b class="title-3 light-black">حراج مَسای</b>
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/2.png') }}" class="minilogo_w">
+                                <b class="title-3 light-black">حراج تک اسپورت</b>
                             </div>
                         </div>
-                        <div class="col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/3.png" class="minilogo_w">
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/3.png') }}" class="minilogo_w">
                                 <b class="title-3 light-black">خرید اقساطی</b>
                             </div>
                         </div>
-
-                        <div class=" col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/4.png" class="minilogo_w">
-                                <b class="title-3 light-black">مَسای سرویس</b>
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/4.png') }}" class="minilogo_w">
+                                <b class="title-3 light-black">تک اسپورت سرویس</b>
                             </div>
                         </div>
                     </div>
@@ -62,27 +62,27 @@
                 <div class="col-sm-6">
                     <div class="row">
 
-                        <div class="col-3   contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/5.png" class="minilogo_w">
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/5.png') }}" class="minilogo_w">
                                 <b class="title-3 light-black">ماه رمضان</b>
                             </div>
                         </div>
-                        <div class="col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/6.png" class="minilogo_w">
-                                <b class="title-3 light-black">مَسای پلاس</b>
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/6.png') }}" class="minilogo_w">
+                                <b class="title-3 light-black">تک اسپورت پلاس</b>
                             </div>
                         </div>
-                        <div class="col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/7.png" class="minilogo_w">
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/7.png') }}" class="minilogo_w">
                                 <b class="title-3 light-black">هدیه خرید</b>
                             </div>
                         </div>
-                        <div class="col-3  contact-miniicon  text-center">
+                        <div class="col-3 contact-miniicon text-center">
                             <div class="space-5">
-                                <img src="assets/img/Masai/minilogo/8.png" class="minilogo_w">
+                                <img src="{{ asset('frontend/theme1/assets/img/Masai/minilogo/8.png') }}" class="minilogo_w">
                                 <b class="title-3 light-black">بیشتر</b>
                             </div>
                         </div>
@@ -105,28 +105,28 @@
                                 <div class="col-6 col-lg-3">
                                     <div class="widget-banner card border_all">
                                         <a href="category-search.html" target="_blank">
-                                            <img class="img-fluid" src="assets/img/banner_img/img-3.jpg" alt="">
+                                            <img class="img-fluid" src="https://kiavarzesh.com/upload/advertise/2021/06/19691973.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <div class="widget-banner card">
                                         <a href="category-search.html" target="_top">
-                                            <img class="img-fluid" src="assets/img/banner_img/img-4.jpg" alt="">
+                                            <img class="img-fluid" src="https://kiavarzesh.com/upload/advertise/2021/06/15760573.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <div class="widget-banner card border_all">
                                         <a href="category-search.html" target="_blank">
-                                            <img class="img-fluid" src="assets/img/banner_img/img-5.jpg" alt="">
+                                            <img class="img-fluid" src="https://kiavarzesh.com/upload/advertise/2021/06/52088875.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <div class="widget-banner card">
                                         <a href="category-search.html" target="_top">
-                                            <img class="img-fluid" src="assets/img/banner_img/img-6.jpg" alt="">
+                                            <img class="img-fluid" src="https://kiavarzesh.com/upload/advertise/2022/09/6241453.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>

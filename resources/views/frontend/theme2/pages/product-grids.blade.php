@@ -1,6 +1,6 @@
 @extends('frontend.theme2.layouts.master')
 
-@section('title','E-SHOP || PRODUCT PAGE')
+@section('title','تک اسپورت || فروشگاه ')
 
 @section('main-content')
 <!-- main -->

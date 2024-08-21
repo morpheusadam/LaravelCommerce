@@ -1,6 +1,6 @@
 @extends('frontend.theme2.layouts.master')
 
-@section('title','Checkout page')
+@section('title','تک اسپورت || تسویه حساب ')
 
 @section('main-content')
 <main class="cart-page default ">

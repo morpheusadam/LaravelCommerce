@@ -1,4 +1,6 @@
 @extends('frontend.theme2.layouts.master')
+@section('title','تک اسپورت || پرداخت موفق ')
+
 @section('title','Order Success')
 @section('main-content')
 <main class="order-success-page default space-top-30">

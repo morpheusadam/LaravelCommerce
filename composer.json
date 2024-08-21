@@ -20,7 +20,7 @@
         "unisharp/laravel-filemanager": "*"
     },
     "require-dev": {
-        "fakerphp/faker": "*",
+        "fakerphp/faker": "^1.23",
         "laravel/pint": "*",
         "laravel/sail": "*",
         "mockery/mockery": "*",

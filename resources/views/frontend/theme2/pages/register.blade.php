@@ -1,118 +1,175 @@
-@extends('frontend.layouts.master')
+@extends('frontend.theme2.layouts.master')
 
-@section('title','E-SHOP || Register Page')
+@section('title','E-SHOP || صفحه ثبت‌نام')
 
 @section('main-content')
-	<!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="bread-inner">
-                        <ul class="bread-list">
-                            <li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">Register</a></li>
-                        </ul>
-                    </div>
+<main class="wrapper default">
+    <div class="container">
+        <div class="row">
+            <div class="main-content login_content col-12 col-md-7 col-lg-5 mx-auto">
+                <header class="card-header">
+                    <h3 class="card-title"><span>ایجاد حساب کاربری</span></h3>
+                </header>
+                <div class="login_box">
+                    <!-- Form -->
+                    <form class="form" method="post" action="{{route('register.submit')}}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> نام کاربری</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="text" name="name" placeholder="نام کاربری شما" required="required" value="{{old('name')}}">
+                                    @error('name')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> ایمیل</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="email" name="email" placeholder="ایمیل شما" required="required" value="{{old('email')}}">
+                                    @error('email')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> کلمه عبور</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="password" name="password" placeholder="کلمه عبور شما" required="required">
+                                    @error('password')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-account-title"><span>*</span> تکرار کلمه عبور</div>
+                                <div class="form-account-row">
+                                    <input class="input_second input_all" type="password" name="password_confirmation" placeholder="تکرار کلمه عبور شما" required="required">
+                                    @error('password_confirmation')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-account-agree">
+                                    <label class="checkbox-form checkbox-primary">
+                                        <input type="checkbox" id="agree" required>
+                                        <span class="checkbox-check"></span>
+                                    </label>
+                                    <label for="agree">
+                                        تمامی <a href="#">شرایط و قوانین</a> استفاده از سرویس‌های سایت را به دقت مطالعه کرده و با آنها موافقت کامل دارم 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 text--center">
+                                <button type="submit" class="btn big_btn btn-main-masai">عضویت</button>
+                            </div>
+                            <div class="col-12 footer_login_reg text--center">
+                                <p>
+                                    <span>قبلا ثبت نام کرده‌اید؟</span>
+                                    <a href="{{route('login.form')}}">ورود</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ End Form -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-            
-    <!-- Shop Login -->
-    <section class="shop login section">
-        <div class="container">
-            <div class="row"> 
-                <div class="col-lg-6 offset-lg-3 col-12">
-                    <div class="login-form">
-                        <h2>Register</h2>
-                        <p>Please register in order to checkout more quickly</p>
-                        <!-- Form -->
-                        <form class="form" method="post" action="{{route('register.submit')}}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Name<span>*</span></label>
-                                        <input type="text" name="name" placeholder="" required="required" value="{{old('name')}}">
-                                        @error('name')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
-                                        <input type="text" name="email" placeholder="" required="required" value="{{old('email')}}">
-                                        @error('email')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Password<span>*</span></label>
-                                        <input type="password" name="password" placeholder="" required="required" value="{{old('password')}}">
-                                        @error('password')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Confirm Password<span>*</span></label>
-                                        <input type="password" name="password_confirmation" placeholder="" required="required" value="{{old('password_confirmation')}}">
-                                        @error('password_confirmation')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group login-btn">
-                                        <button class="btn" type="submit">Register</button>
-                                        <a href="{{route('login.form')}}" class="btn">Login</a>
-                                        OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                                        <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!--/ End Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ End Login -->
-@endsection
+</main>
 
-@push('styles')
+ 
 <style>
-    .shop.login .form .btn{
-        margin-right:0;
+    .wrapper.default {
+        padding: 50px 0;
     }
-    .btn-facebook{
-        background:#39579A;
+    .login_content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    .btn-facebook:hover{
-        background:#073088 !important;
+    .card-header {
+        text-align: center;
+        margin-bottom: 20px;
     }
-    .btn-github{
-        background:#444444;
-        color:white;
+    .card-title {
+        font-size: 24px;
+        color: #333;
     }
-    .btn-github:hover{
-        background:black !important;
+    .login_box {
+        padding: 20px;
     }
-    .btn-google{
-        background:#ea4335;
-        color:white;
+    .form-account-title {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
     }
-    .btn-google:hover{
-        background:rgb(243, 26, 26) !important;
+    .form-account-row {
+        margin-bottom: 20px;
+    }
+    .input_second.input_all {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .form-account-agree {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .checkbox-form.checkbox-primary {
+        margin-right: 10px;
+    }
+    .checkbox-check {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        display: inline-block;
+        position: relative;
+    }
+    .checkbox-check::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: #61bec3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+    .checkbox-form input[type="checkbox"]:checked + .checkbox-check::after {
+        display: block;
+    }
+    .btn-main-masai {
+        background: #61bec3;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .btn-main-masai:hover {
+        background: #4aa7b0;
+    }
+    .footer_login_reg {
+        margin-top: 20px;
+    }
+    .footer_login_reg p {
+        margin: 0;
+    }
+    .footer_login_reg a {
+        color: #61bec3;
+        text-decoration: none;
+    }
+    .footer_login_reg a:hover {
+        text-decoration: underline;
     }
 </style>
-@endpush
+@endsection
