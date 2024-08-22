@@ -154,13 +154,12 @@
             </div>
         </div>
 
-        
+
         <nav class="nav_header">
             <ul class="nav__ullist">
                 <li class="list_style">
                     <i class="fa fa-bars icon-icon" aria-hidden="true"></i><a href="#" class="list__link">دسته
                         بندی کالاها</a>
-                        
 
 
 
@@ -176,74 +175,65 @@
 
 
 
-                  <div class="submeno">
-    <ul class="main_meno-drobdown">
-        {!! Helper::getHeaderCategory() !!}
-    </ul>
-</div>
 
-<style>
-    /* CSS برای نمایش منوهای تو در تو */
-    .main_meno-drobdown {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .child_mno-drobdown {
-        position: relative;
-    }
-    
-    .child_mno-drobdown > .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 100%; /* تغییر از left به right برای نمایش زیر منوها در سمت چپ */
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        z-index: 1000; /* اضافه کردن z-index برای اطمینان از نمایش صحیح */
-    }
-    
-    .child_mno-drobdown:hover > .dropdown-menu {
-        display: block;
-    }
-    </style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var dropdowns = document.querySelectorAll('.child_mno-drobdown');
-    
-        dropdowns.forEach(function(dropdown) {
-            dropdown.addEventListener('mouseenter', function() {
-                var submenu = this.querySelector('.dropdown-menu');
-                if (submenu) {
-                    submenu.style.display = 'block';
-                }
-            });
-    
-            dropdown.addEventListener('mouseleave', function() {
-                var submenu = this.querySelector('.dropdown-menu');
-                if (submenu) {
-                    submenu.style.display = 'none';
-                }
-            });
-        });
-    });
-    </script>
+                    <div class="submeno">
+                        <ul class="main_meno-drobdown">
+                            {!! Helper::getHeaderCategory() !!}
+                        </ul>
+                    </div>
 
+                    <style>
+                        /* CSS برای نمایش منوهای تو در تو */
+                        .main_meno-drobdown {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                        }
 
+                        .child_mno-drobdown {
+                            position: relative;
+                        }
 
+                        .child_mno-drobdown>.dropdown-menu {
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            right: 100%;
+                            /* تغییر از left به right برای نمایش زیر منوها در سمت چپ */
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                            background-color: #fff;
+                            border: 1px solid #ccc;
+                            z-index: 1000;
+                            /* اضافه کردن z-index برای اطمینان از نمایش صحیح */
+                        }
 
+                        .child_mno-drobdown:hover>.dropdown-menu {
+                            display: block;
+                        }
+                    </style>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var dropdowns = document.querySelectorAll('.child_mno-drobdown');
 
+                            dropdowns.forEach(function(dropdown) {
+                                dropdown.addEventListener('mouseenter', function() {
+                                    var submenu = this.querySelector('.dropdown-menu');
+                                    if (submenu) {
+                                        submenu.style.display = 'block';
+                                    }
+                                });
 
-
-
-
-
-
-
+                                dropdown.addEventListener('mouseleave', function() {
+                                    var submenu = this.querySelector('.dropdown-menu');
+                                    if (submenu) {
+                                        submenu.style.display = 'none';
+                                    }
+                                });
+                            });
+                        });
+                    </script>
 
 
                 </li>
