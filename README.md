@@ -1,13 +1,16 @@
 # LaravelCommerce
 
-[![github-follow](https://alirezap30web.ir/wp-content/uploads/2024/01/laravel-shoping-700x329.jpeg)](https://github.com/morpheusadam)
+<div align="center">
+  <a href="https://github.com/morpheusadam">
+    <img src="https://alirezap30web.ir/wp-content/uploads/2024/01/laravel-shoping-700x329.jpeg" alt="github-follow">
+  </a>
+</div>
 
 
-## وب‌سایت کامل تجارت الکترونیک در Laravel 10
+## وب‌سایت کامل تجارت الکترhdkونیک در Laravel 10
 
 ### ویژگی‌ها:
-#### PWA (برنامه وب پیشرو)
-### ====== فرانت‌اند =======
+ ### ====== فرانت‌اند =======
 
 - طراحی واکنش‌گرا
 - سبد خرید، لیست علاقه‌مندی‌ها، نظرات محصول
