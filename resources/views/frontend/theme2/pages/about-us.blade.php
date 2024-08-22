@@ -40,7 +40,7 @@
 				</div>
 				<div class="col-lg-6 col-12">
 					<div class="about-img overlay" style="position: relative; border-radius: 10px; overflow: hidden;">
-						<img src="@foreach($settings as $data) {{$data->photo}} @endforeach" alt="@foreach($settings as $data) {{$data->photo}} @endforeach" style="width: 100%; height: auto;">
+						<img src="https://finupevent.ir/wp-content/uploads/2020/12/about-us-1.png" alt="@foreach($settings as $data) {{$data->photo}} @endforeach" style="width: 100%; height: auto;">
 					</div>
 				</div>
 			</div>
