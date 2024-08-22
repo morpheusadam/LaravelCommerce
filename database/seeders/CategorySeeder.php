@@ -26,6 +26,14 @@ class CategorySeeder extends Seeder
             'لوازم بوکس', 'لوازم ژیمناستیک', 'لوازم تیراندازی'
         ];
 
+        $subCategories = [
+            'کفش دویدن', 'کفش بسکتبال', 'کفش فوتبال', 'کفش تنیس', 'کفش کوهنوردی',
+            'لباس دویدن', 'لباس بسکتبال', 'لباس فوتبال', 'لباس تنیس', 'لباس کوهنوردی',
+            'توپ فوتبال', 'توپ بسکتبال', 'توپ والیبال', 'توپ تنیس', 'توپ بدمینتون',
+            'دمبل', 'هالتر', 'تردمیل', 'دوچرخه ثابت', 'وزنه برداری',
+            'عینک شنا', 'کلاه شنا', 'مایو', 'فین شنا', 'تخته شنا'
+        ];
+
         // ایجاد دسته‌بندی‌های والد
         foreach ($sportCategories as $i => $category) {
             $parentId = DB::table('categories')->insertGetId([
@@ -43,9 +51,10 @@ class CategorySeeder extends Seeder
 
             // ایجاد زیر دسته‌بندی‌ها برای هر دسته‌بندی والد
             for ($j = 0; $j < 3; $j++) {
+                $subCategory = $subCategories[array_rand($subCategories)];
                 DB::table('categories')->insert([
-                    'title' => $faker->word,
-                    'slug' => Str::slug($faker->word . '-' . uniqid()),
+                    'title' => $subCategory,
+                    'slug' => Str::slug($subCategory . '-' . uniqid()),
                     'summary' => $faker->sentence,
                     'photo' => $faker->imageUrl(640, 480, 'sports', true, 'Faker'),
                     'is_parent' => 0,
