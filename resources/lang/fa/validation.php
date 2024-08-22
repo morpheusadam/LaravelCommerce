@@ -2,32 +2,25 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    |
-    */
+    'failed' => 'نام کاربری یا رمز عبور اشتباه است.',
+    'throttle' => 'تعداد تلاش‌های ورود بیش از حد مجاز است. لطفاً :seconds ثانیه دیگر دوباره تلاش کنید.',
 
-    'accepted' => ':attribute باید پذیرفته شود.',
+    
+    'accepted' => 'باید :attribute را بپذیرید.',
     'active_url' => ':attribute یک URL معتبر نیست.',
     'after' => ':attribute باید تاریخی بعد از :date باشد.',
-    'after_or_equal' => ':attribute باید تاریخی بعد یا برابر با :date باشد.',
+    'after_or_equal' => ':attribute باید تاریخی بعد از یا برابر با :date باشد.',
     'alpha' => ':attribute فقط می‌تواند شامل حروف باشد.',
     'alpha_dash' => ':attribute فقط می‌تواند شامل حروف، اعداد، خط تیره و زیرخط باشد.',
     'alpha_num' => ':attribute فقط می‌تواند شامل حروف و اعداد باشد.',
     'array' => ':attribute باید یک آرایه باشد.',
     'before' => ':attribute باید تاریخی قبل از :date باشد.',
-    'before_or_equal' => ':attribute باید تاریخی قبل یا برابر با :date باشد.',
+    'before_or_equal' => ':attribute باید تاریخی قبل از یا برابر با :date باشد.',
     'between' => [
         'numeric' => ':attribute باید بین :min و :max باشد.',
         'file' => ':attribute باید بین :min و :max کیلوبایت باشد.',
         'string' => ':attribute باید بین :min و :max کاراکتر باشد.',
-        'array' => ':attribute باید بین :min و :max آیتم داشته باشد.',
+        'array' => ':attribute باید بین :min و :max آیتم باشد.',
     ],
     'boolean' => 'فیلد :attribute باید صحیح یا غلط باشد.',
     'confirmed' => 'تأییدیه :attribute مطابقت ندارد.',
@@ -40,7 +33,7 @@ return [
     'dimensions' => ':attribute ابعاد تصویر نامعتبر دارد.',
     'distinct' => 'فیلد :attribute مقدار تکراری دارد.',
     'email' => ':attribute باید یک آدرس ایمیل معتبر باشد.',
-    'ends_with' => ':attribute باید با یکی از موارد زیر خاتمه یابد: :values.',
+    'ends_with' => ':attribute باید با یکی از مقادیر زیر خاتمه یابد: :values.',
     'exists' => ':attribute انتخاب شده نامعتبر است.',
     'file' => ':attribute باید یک فایل باشد.',
     'filled' => 'فیلد :attribute باید دارای مقدار باشد.',
@@ -51,10 +44,10 @@ return [
         'array' => ':attribute باید بیشتر از :value آیتم داشته باشد.',
     ],
     'gte' => [
-        'numeric' => ':attribute باید بزرگتر یا برابر با :value باشد.',
-        'file' => ':attribute باید بزرگتر یا برابر با :value کیلوبایت باشد.',
-        'string' => ':attribute باید بزرگتر یا برابر با :value کاراکتر باشد.',
-        'array' => ':attribute باید حداقل :value آیتم داشته باشد.',
+        'numeric' => ':attribute باید بزرگتر یا مساوی :value باشد.',
+        'file' => ':attribute باید بزرگتر یا مساوی :value کیلوبایت باشد.',
+        'string' => ':attribute باید بزرگتر یا مساوی :value کاراکتر باشد.',
+        'array' => ':attribute باید :value آیتم یا بیشتر داشته باشد.',
     ],
     'image' => ':attribute باید یک تصویر باشد.',
     'in' => ':attribute انتخاب شده نامعتبر است.',
@@ -71,9 +64,9 @@ return [
         'array' => ':attribute باید کمتر از :value آیتم داشته باشد.',
     ],
     'lte' => [
-        'numeric' => ':attribute باید کمتر یا برابر با :value باشد.',
-        'file' => ':attribute باید کمتر یا برابر با :value کیلوبایت باشد.',
-        'string' => ':attribute باید کمتر یا برابر با :value کاراکتر باشد.',
+        'numeric' => ':attribute باید کمتر یا مساوی :value باشد.',
+        'file' => ':attribute باید کمتر یا مساوی :value کیلوبایت باشد.',
+        'string' => ':attribute باید کمتر یا مساوی :value کاراکتر باشد.',
         'array' => ':attribute نباید بیشتر از :value آیتم داشته باشد.',
     ],
     'max' => [
@@ -94,15 +87,15 @@ return [
     'not_regex' => 'فرمت :attribute نامعتبر است.',
     'numeric' => ':attribute باید یک عدد باشد.',
     'password' => 'رمز عبور اشتباه است.',
-    'present' => 'فیلد :attribute باید موجود باشد.',
+    'present' => 'فیلد :attribute باید حاضر باشد.',
     'regex' => 'فرمت :attribute نامعتبر است.',
     'required' => 'فیلد :attribute الزامی است.',
-    'required_if' => 'فیلد :attribute زمانی الزامی است که :other برابر با :value باشد.',
+    'required_if' => 'فیلد :attribute زمانی که :other برابر با :value است الزامی است.',
     'required_unless' => 'فیلد :attribute الزامی است مگر اینکه :other در :values باشد.',
-    'required_with' => 'فیلد :attribute زمانی الزامی است که :values موجود باشد.',
-    'required_with_all' => 'فیلد :attribute زمانی الزامی است که :values موجود باشند.',
-    'required_without' => 'فیلد :attribute زمانی الزامی است که :values موجود نباشد.',
-    'required_without_all' => 'فیلد :attribute زمانی الزامی است که هیچ یک از :values موجود نباشند.',
+    'required_with' => 'فیلد :attribute زمانی که :values حاضر است الزامی است.',
+    'required_with_all' => 'فیلد :attribute زمانی که :values حاضر است الزامی است.',
+    'required_without' => 'فیلد :attribute زمانی که :values حاضر نیست الزامی است.',
+    'required_without_all' => 'فیلد :attribute زمانی که هیچ یک از :values حاضر نیستند الزامی است.',
     'same' => ':attribute و :other باید مطابقت داشته باشند.',
     'size' => [
         'numeric' => ':attribute باید :size باشد.',
@@ -110,42 +103,26 @@ return [
         'string' => ':attribute باید :size کاراکتر باشد.',
         'array' => ':attribute باید شامل :size آیتم باشد.',
     ],
-    'starts_with' => ':attribute باید با یکی از موارد زیر شروع شود: :values.',
+    'starts_with' => ':attribute باید با یکی از مقادیر زیر شروع شود: :values.',
     'string' => ':attribute باید یک رشته باشد.',
     'timezone' => ':attribute باید یک منطقه زمانی معتبر باشد.',
-    'unique' => ':attribute قبلاً استفاده شده است.',
+    'unique' => ':attribute قبلاً ثبت شده است.',
     'uploaded' => 'بارگذاری :attribute با شکست مواجه شد.',
     'url' => 'فرمت :attribute نامعتبر است.',
     'uuid' => ':attribute باید یک UUID معتبر باشد.',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
-    |
-    */
-
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'پیام سفارشی',
+        'code' => [
+            'required' => 'کد تأیید الزامی است.',
+            'numeric' => 'کد تأیید باید عددی باشد.',
+            'invalid' => 'کد تأیید نامعتبر است.',
         ],
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Attributes
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
-    |
-    */
-
-    'attributes' => [],
-
+    'attributes' => [
+        'email' => 'ایمیل',
+        'password' => 'رمز عبور',
+        'password_confirmation' => 'تأیید رمز عبور',
+        'code' => 'کد تأیید',
+    ],
 ];

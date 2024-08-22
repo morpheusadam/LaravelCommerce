@@ -44,11 +44,25 @@ Route::get('user/login', [FrontendController::class, 'login'])->name('login.form
 Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
 Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout');
 
+
+
+
+
 Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
 Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
-// Reset password
-Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset');
-// Socialite
+Route::get('user/verify', [FrontendController::class, 'verifyForm'])->name('verify.form');
+Route::post('user/verify', [FrontendController::class, 'verifySubmit'])->name('verify.submit');
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+
+
+
+
+
+
 Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
 Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
 

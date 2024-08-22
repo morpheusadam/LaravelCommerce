@@ -17,6 +17,9 @@ use DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+
 class FrontendController extends Controller
 {
    
@@ -359,59 +362,142 @@ class FrontendController extends Controller
 
     // Login
     public function login(){
+        if (Auth::check()) {
+            return view('frontend.theme2.pages.profile');
+        }
         return view('frontend.theme2.pages.login');
     }
+
     public function loginSubmit(Request $request){
-        $data= $request->all();
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
-            Session::put('user',$data['email']);
-            request()->session()->flash('success','Successfully login');
-            return redirect()->route('home');
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return redirect()->back()->withErrors(['email' => 'این ایمیل ثبت نام نشده است.']);
         }
-        else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
-            return redirect()->back();
+
+        if (!Hash::check($request->password, $user->password)) {
+            return redirect()->back()->withErrors(['password' => 'رمز عبور شما اشتباه است.']);
+        }
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 'active'])) {
+            Session::put('user', $request->email);
+            request()->session()->flash('success', 'با موفقیت وارد شدید');
+            return redirect()->route('home');
+        } else {
+            return redirect()->back()->withErrors(['email' => 'حساب کاربری شما فعال نیست.']);
         }
     }
 
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logout successfully');
-        return back();
+        request()->session()->flash('success', 'با موفقیت خارج شدید');
+        return redirect()->route('login.form');
     }
+
+
+
+
+
 
     public function register(){
         return view('frontend.theme2.pages.register');
     }
-    public function registerSubmit(Request $request){
-        // return $request->all();
-        $this->validate($request,[
-            'name'=>'string|required|min:2',
-            'email'=>'string|required|unique:users,email',
-            'password'=>'required|min:6|confirmed',
-        ]);
-        $data=$request->all();
-        // dd($data);
-        $check=$this->create($data);
-        Session::put('user',$data['email']);
-        if($check){
-            request()->session()->flash('success','Successfully registered');
-            return redirect()->route('home');
-        }
-        else{
-            request()->session()->flash('error','Please try again!');
-            return back();
-        }
+
+
+
+
+
+
+
+
+
+
+ 
+public function registerSubmit(Request $request){
+    $request->validate([
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6|confirmed',
+    ]);
+
+    $code = rand(1000, 9999);
+    $request->session()->put('verification_code', $code);
+    $request->session()->put('email', $request->email);
+    $request->session()->put('password', Hash::make($request->password));
+
+    try {
+        Mail::send([], [], function ($message) use ($request, $code) {
+            $message->to($request->email)
+                    ->subject('کد تأیید ایمیل')
+                    ->html("کد تأیید شما: $code");
+        });
+
+        Log::info('Email sent successfully to ' . $request->email);
+    } catch (\Exception $e) {
+        Log::error('Failed to send email to ' . $request->email . '. Error: ' . $e->getMessage());
+        return back()->withErrors(['email' => 'ارسال ایمیل با شکست مواجه شد. لطفاً دوباره تلاش کنید.']);
     }
-    public function create(array $data){
+
+    return redirect()->route('verify.form');
+}
+
+public function verifySubmit(Request $request){
+    $request->validate([
+        'code' => 'required|numeric',
+    ]);
+
+    if($request->code == $request->session()->get('verification_code')){
+        $data = [
+            'name' => 'User',
+            'email' => $request->session()->get('email'),
+            'password' => $request->session()->get('password'),
+        ];
+
+        $user = User::create($data);
+        Auth::login($user);
+
+        $request->session()->forget('verification_code');
+        $request->session()->forget('email');
+        $request->session()->forget('password');
+
+        request()->session()->flash('success','ثبت‌نام با موفقیت انجام شد');
+        return redirect()->route('home');
+    } else {
+        return back()->withErrors(['code' => 'کد تأیید نامعتبر است.']);
+    }
+}
+
+public function verifyForm(){
+    return view('frontend.theme2.pages.verify');
+}
+    
+    protected function create(array $data){
         return User::create([
-            'name'=>$data['name'],
-            'email'=>$data['email'],
-            'password'=>Hash::make($data['password']),
-            'status'=>'active'
-            ]);
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'mobile' => $data['mobile'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Reset password
     public function showResetForm(){
         return view('auth.passwords.old-reset');

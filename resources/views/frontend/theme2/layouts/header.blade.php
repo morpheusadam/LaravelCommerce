@@ -153,6 +153,8 @@
                 </div>
             </div>
         </div>
+
+        
         <nav class="nav_header">
             <ul class="nav__ullist">
                 <li class="list_style">
