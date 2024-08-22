@@ -18,13 +18,21 @@ class CategorySeeder extends Seeder
     {
         $faker = Faker::create('fa_IR'); // تنظیم زبان فارسی
 
+        $sportCategories = [
+            'کفش ورزشی', 'لباس ورزشی', 'توپ', 'لوازم بدنسازی', 'لوازم شنا', 
+            'لوازم کوهنوردی', 'لوازم دوچرخه‌سواری', 'لوازم فوتبال', 'لوازم بسکتبال', 
+            'لوازم والیبال', 'لوازم تنیس', 'لوازم بدمینتون', 'لوازم یوگا', 
+            'لوازم پیاده‌روی', 'لوازم اسکی', 'لوازم اسکیت', 'لوازم گلف', 
+            'لوازم بوکس', 'لوازم ژیمناستیک', 'لوازم تیراندازی'
+        ];
+
         // ایجاد دسته‌بندی‌های والد
-        for ($i = 0; $i < 5; $i++) {
-            DB::table('categories')->insert([
-                'title' => $faker->word,
-                'slug' => Str::slug($faker->word . '-' . $i),
+        foreach ($sportCategories as $i => $category) {
+            $parentId = DB::table('categories')->insertGetId([
+                'title' => $category,
+                'slug' => Str::slug($category . '-' . uniqid()),
                 'summary' => $faker->sentence,
-                'photo' => $faker->imageUrl(640, 480, 'cats', true, 'Faker'),
+                'photo' => $faker->imageUrl(640, 480, 'sports', true, 'Faker'),
                 'is_parent' => 1,
                 'parent_id' => null,
                 'added_by' => $faker->optional()->numberBetween(1, 10),
@@ -32,25 +40,22 @@ class CategorySeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-        }
 
-        // دریافت ID دسته‌بندی‌های والد
-        $parentIds = DB::table('categories')->pluck('id')->toArray();
-
-        // ایجاد دسته‌بندی‌های فرزند
-        for ($i = 0; $i < 5; $i++) {
-            DB::table('categories')->insert([
-                'title' => $faker->word,
-                'slug' => Str::slug($faker->word . '-' . ($i + 5)),
-                'summary' => $faker->sentence,
-                'photo' => $faker->imageUrl(640, 480, 'cats', true, 'Faker'),
-                'is_parent' => 0,
-                'parent_id' => $faker->randomElement($parentIds),
-                'added_by' => $faker->optional()->numberBetween(1, 10),
-                'status' => $faker->randomElement(['active', 'inactive']),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            // ایجاد زیر دسته‌بندی‌ها برای هر دسته‌بندی والد
+            for ($j = 0; $j < 3; $j++) {
+                DB::table('categories')->insert([
+                    'title' => $faker->word,
+                    'slug' => Str::slug($faker->word . '-' . uniqid()),
+                    'summary' => $faker->sentence,
+                    'photo' => $faker->imageUrl(640, 480, 'sports', true, 'Faker'),
+                    'is_parent' => 0,
+                    'parent_id' => $parentId,
+                    'added_by' => $faker->optional()->numberBetween(1, 10),
+                    'status' => $faker->randomElement(['active', 'inactive']),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
         }
     }
 }
