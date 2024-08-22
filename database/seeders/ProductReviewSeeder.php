@@ -22,10 +22,10 @@ class ProductReviewSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             DB::table('product_reviews')->insert([
-                'user_id' => $faker->optional()->randomElement($userIds),
-                'product_id' => $faker->optional()->randomElement($productIds),
+                'user_id' => $faker->randomElement($userIds), // اطمینان از وجود مقدار
+                'product_id' => $faker->randomElement($productIds), // اطمینان از وجود مقدار
                 'rate' => $faker->numberBetween(1, 5),
-                'review' => $faker->sentence,
+                'review' => $faker->realText(200), // توضیحات با طول زیاد
                 'status' => $faker->randomElement(['active', 'inactive']),
                 'created_at' => now(),
                 'updated_at' => now(),

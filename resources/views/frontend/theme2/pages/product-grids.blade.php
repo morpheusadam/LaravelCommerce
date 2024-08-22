@@ -194,6 +194,14 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                
+                                
+                                
+                                <div class="pagination-wrapper">
+                                    {{ $products->links('pagination::bootstrap-4') }}
+                                </div>
+                                
+
                             </div>
                         </div>
                         <!-- Repeat similar structure for other tabs like #most-visited, #delivery, #most-seller, #price -->
@@ -203,5 +211,48 @@
         </div>
     </div>
 </main>
-<!-- main -->
+
+<style>
+    .pagination-wrapper {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .pagination {
+        display: inline-block;
+    }
+    
+    .pagination li {
+        display: inline;
+        margin: 0 5px;
+    }
+    
+    .pagination li a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    
+    .pagination li a:hover {
+        background-color: #f0f0f0;
+    }
+    
+    /* تنظیم اندازه فونت و سایر ویژگی‌های فلش‌های pagination */
+    .pagination .page-link {
+        font-size: 14px; /* تنظیم اندازه فونت فلش‌ها */
+        line-height: 1.5; /* تنظیم ارتفاع خط فلش‌ها */
+        display: inline-block; /* اطمینان از نمایش صحیح فلش‌ها */
+        vertical-align: middle; /* تنظیم تراز عمودی فلش‌ها */
+    }
+    
+    /* تنظیم اندازه فونت برای آیکون‌های خاص */
+    .pagination .page-link svg {
+        width: 16px; /* تنظیم عرض آیکون‌ها */
+        height: 16px; /* تنظیم ارتفاع آیکون‌ها */
+        vertical-align: middle; /* تنظیم تراز عمودی آیکون‌ها */
+    }
+    </style>
+
 @endsection
