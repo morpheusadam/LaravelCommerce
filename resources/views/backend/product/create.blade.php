@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="col-form-label">قیمت (NRS) <span class="text-danger">*</span></label>
+          <label for="price" class="col-form-label">قیمت (تومان) <span class="text-danger">*</span></label>
           <input id="price" type="number" name="price" placeholder="قیمت را وارد کنید"  value="{{old('price')}}" class="form-control">
           @error('price')
           <span class="text-danger">{{$message}}</span>
