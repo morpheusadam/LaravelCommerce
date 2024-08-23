@@ -1,0 +1,46 @@
+# Laravel specific
+/vendor
+/node_modules
+
+/storage/*.key
+/storage/app/public
+/storage/debugbar
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/storage/logs
+.env
+.env.backup
+.env.local
+.env.development
+.env.production
+.env.testing
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# IDE specific
+/.idea
+/.vscode
+
+# System specific
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# NPM
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# Laravel Mix
+/public/mix-manifest.json
+/public/hot
+/public/css/*.css
+/public/js/*.js
+/public/js/*.js.map
+/public/css/*.css.map
