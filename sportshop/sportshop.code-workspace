@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../resources/views/frontend/theme2"
+	}
+],
+  "settings": {}
+}

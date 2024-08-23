@@ -10,12 +10,14 @@
 /storage/framework/testing
 /storage/framework/views
 /storage/logs
+# Ignore environment files
 .env
 .env.backup
 .env.local
 .env.development
 .env.production
 .env.testing
+
 .phpunit.result.cache
 Homestead.yaml
 Homestead.json

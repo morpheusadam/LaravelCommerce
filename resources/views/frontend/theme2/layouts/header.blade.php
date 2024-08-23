@@ -63,13 +63,7 @@
                     <div class="search-area default">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    @if (is_array($categories) || is_object($categories))
-                                        @foreach ($categories as $cat)
-                                            <a href="{{ route('product-cat', $cat->slug) }}" target="_blank">
-                                        @endforeach
-                                    @endif
-                                </select>
+                               
 
 
                                 <form method="POST" action="{{ route('product.search') }}" class="search">
