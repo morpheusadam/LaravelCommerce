@@ -45,6 +45,13 @@ yarn.lock
 /public/js/*.js.map
 /public/css/*.css.map
 
-
+# Ignore zip files
 storage.zip
 public.zip
+
+# Ignore other files
+*.log
+*.cache
+*.tmp
+*.bak
+*.swp
