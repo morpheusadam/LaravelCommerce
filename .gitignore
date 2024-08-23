@@ -44,3 +44,6 @@ yarn.lock
 /public/js/*.js
 /public/js/*.js.map
 /public/css/*.css.map
+
+storage.zip
+public.zip
