@@ -1,45 +1,10 @@
-<!DOCTYPE html>
-<html lang="fa">
+@extends('frontend.theme2.layouts.master')
+@section('title','تک اسپورت || تماس با ما ')
+
+@section('main-content')
+	 
 
 
-<!-- Mirrored from garzak.ir/garzak_them/Masai/M_01/template_01/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 May 2023 07:58:00 GMT -->
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <title> تک اسپورت || محوصلات </title>
-    <meta name="description" content="مَسای شاپ ">
-    <meta name="author" content="Mirazimi">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-
-
-    <!-- CSS Files -->
-    <!-- CSS Files -->
-    <link href="{{ asset('frontend/theme1/assets/fonts/font-awesome/css/fontawesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/fonts/font-awesome/css/solid.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/main_ui.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/icon.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/plugins/owl.carousel.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/plugins/owl.theme.default.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/nouislider.min.css') }}" rel="stylesheet" />
-    <!-- only single -->
-    <link href="{{ asset('frontend/theme1/assets/css/plugins/prettyphoto/css/prettyPhoto.css') }}" rel="stylesheet" />
-    <!-- only single -->
-    <link href="{{ asset('frontend/theme1/assets/css/main.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/theme1/assets/css/style.css') }}" rel="stylesheet" />
-
-
-
-</head>
-
-@include('frontend.theme2.layouts.header')
-<!--start pc header -->
-<!-- end pc header -->
-<!-- main -->
 <main class="single-product default">
     <div class="container">
         <div class="row">
@@ -364,62 +329,7 @@
     </div>
     </div>
 </main>
-<!-- main -->
-
-@include('frontend.theme2.layouts.footer')
-</div>
-<!--    JS Files   -->
-<script src="{{ asset('frontend/theme1/assets/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/core/jquery.min.js') }}"></script>
-<script src="{{ asset('frontend/theme1/assets/js/core/popper.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/bootstrap-switch.js') }}"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-
-<script src="{{ asset('frontend/theme1/assets/js/now-ui-kit.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/countdown.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/owl.carousel.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/jquery.easing.1.3.min.js') }}" type="text/javascript">
-</script>
-<script src="{{ asset('frontend/theme1/assets/js/plugins/jquery.ez-plus.js') }}" type="text/javascript"></script>
-
-<!-- custom Js -->
-<script src="{{ asset('frontend/theme1/assets/js/main.js') }}" type="text/javascript"></script>
-<!-- only single  -->
-<script src="{{ asset('frontend/theme1/assets/css/plugins/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
-<script>
-    function copyElementText(id) {
-        var text = document.getElementById(id).innerText;
-        var elem = document.createElement("textarea");
-        document.body.appendChild(elem);
-        elem.value = text;
-        elem.select();
-        document.execCommand("copy");
-        document.body.removeChild(elem);
-    }
-</script>
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-        $("area[rel^='prettyPhoto']").prettyPhoto();
-
-        $(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({
-            animation_speed: 'normal',
-            theme: 'light_square',
-            slideshow: 3000,
-            autoplay_slideshow: false
-        });
-        $(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({
-            animation_speed: 'fast',
-            slideshow: 10000,
-            hideflash: true
-        });
-    });
-</script>
-
-</body>
 
 
-<!-- Mirrored from garzak.ir/garzak_them/Masai/M_01/template_01/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 May 2023 07:58:06 GMT -->
 
-</html>
+@endsection
