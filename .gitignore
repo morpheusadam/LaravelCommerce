@@ -57,3 +57,6 @@ public.zip
 *.tmp
 *.bak
 *.swp
+
+# Ignore public storage
+public/storage
