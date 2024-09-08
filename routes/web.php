@@ -84,6 +84,8 @@ Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('s
 Route::get('cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete');
 Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
 
+Route::post('/update-cart', [CartController::class, 'updateCart'])->name('update-cart');
+
 Route::get('/cart', function () {
     return view('frontend.theme2.pages.cart');
 })->name('cart');

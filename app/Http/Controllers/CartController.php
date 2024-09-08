@@ -100,6 +100,23 @@ class CartController extends Controller
         return back();       
     } 
     
+
+    public function updateCart(Request $request)
+    {
+        $quantities = $request->input('quant');
+        foreach ($quantities as $cartId => $quantity) {
+            $cart = Cart::find($cartId);
+            if ($cart) {
+                $cart->quantity = $quantity;
+                $cart->amount = $cart->price * $quantity;
+                $cart->save();
+            }
+        }
+
+        return redirect()->route('cart')->with('success', 'Cart updated successfully');
+    }
+
+
     public function cartDelete(Request $request){
         $cart = Cart::find($request->id);
         if ($cart) {

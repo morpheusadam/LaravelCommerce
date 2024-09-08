@@ -114,6 +114,14 @@
                                                     <td>{{ number_format($totalPrice, 2) }} <span>تومان</span></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>بسته‌بندی و ارسال:</td>
+                                                    <td>وابسته به نوع ارسال</td>
+                                                </tr>
+                                                <tr class="all">
+                                                    <td>قیمت قابل پرداخت:</td>
+                                                    <td>{{ number_format($totalPrice, 2) }} <span>تومان</span></td>
+                                                </tr>
+                                                <tr>
                                                     <td colspan="2" class="Final_payment_det">
                                                         <div class="col-12 ">
                                                             <p>

@@ -22,7 +22,10 @@
                                     @foreach($menu as $cat_info)
                                         <div class="col-6 col-md-2 contact-bigicon">
                                             <a href="{{ route('product-cat', $cat_info->slug) }}" target="_blank">
-                                                <img class="img-responsive imgpad" src="assets/img/Masai/bigicon/img-1.png" alt="" />
+                                                <div class="circle-icon"> <!-- Add a div for circular icon -->
+                                                    <img class="img-responsive imgpad" src="{{ $cat_info->photo }}" alt="" />
+                                                    
+                                                </div>
                                                 <b class="title-3 light-black">{{ $cat_info->title }}</b>
                                             </a>
                                         </div>

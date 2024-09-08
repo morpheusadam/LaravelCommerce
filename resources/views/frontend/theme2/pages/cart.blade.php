@@ -39,7 +39,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<form action="{{ route('place-order') }}" method="POST">
+							<form id="cart-form" action="{{ route('update-cart') }}" method="POST">
 								@csrf
 								@if(Helper::getAllProductFromCart())
 									@foreach(Helper::getAllProductFromCart() as $key => $cart)
@@ -69,8 +69,8 @@
 													<ins><span>{{ number_format($cart->price, 2) }} <span>تومان</span></span></ins>
 												</div>
 											</td>
-											<td><input type="number" class="tedad" name="quant[{{ $key }}]" value="{{ $cart->quantity }}" data-price="{{ $cart->price }}" /></td>
-											<td class="price_alltd">{{ number_format($cart->amount, 2) }} <span>تومان</span></td>
+											<td><input type="number" class="tedad" name="quant[{{ $cart->id }}]" value="{{ $cart->quantity }}" onchange="document.getElementById('cart-form').submit();" /></td>
+											<td class="price_alltd" id="price_{{ $cart->id }}">{{ number_format($cart->amount, 2) }} <span>تومان</span></td>
 										</tr>
 									@endforeach
 									<tr>
@@ -107,16 +107,12 @@
 						<table class="table table_details">
 							<tbody>
 								<tr>
-									<td>قیمت کل سفارش:</td>
-									<td>{{ number_format(Helper::totalCartPrice(), 2) }} <span>تومان</span></td>
-								</tr>
-								<tr>
 									<td>بسته‌بندی و ارسال:</td>
 									<td>وابسته به نوع ارسال</td>
 								</tr>
-								<tr class="all">
-									<td>قیمت قابل پرداخت:</td>
-									<td>{{ number_format(Helper::totalCartPrice(), 2) }} <span>تومان</span></td>
+								<tr>
+									<td>قیمت نهایی:</td>
+									<td class="total_price">{{ number_format(Helper::totalCartPrice(), 2) }} <span>تومان</span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><a href="{{ route('checkout') }}" class="btn big_btn btn-main-masai">گام بعدی</a></td>
@@ -130,13 +126,20 @@
 	</div>
 </main>
 <script>
-document.querySelectorAll('.tedad').forEach(input => {
-    input.addEventListener('input', function() {
-        const price = parseFloat(this.dataset.price);
-        const quantity = parseInt(this.value);
-        const finalPrice = price * quantity;
-        this.closest('tr').querySelector('.price_alltd').innerHTML = finalPrice.toLocaleString('fa-IR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' <span>تومان</span>';
+function updateCart(element, cartId, unitPrice) {
+    let quantity = element.value;
+    let newPrice = quantity * unitPrice;
+    document.getElementById('price_' + cartId).innerText = newPrice.toLocaleString('fa-IR', { minimumFractionDigits: 2 }) + ' تومان';
+
+    // Update total price
+    let totalPrice = 0;
+    document.querySelectorAll('.price_alltd').forEach(function(priceElement) {
+        totalPrice += parseFloat(priceElement.innerText.replace(/,/g, '').replace(' تومان', ''));
     });
-});
+
+    document.querySelectorAll('.total_price').forEach(function(totalElement) {
+        totalElement.innerText = totalPrice.toLocaleString('fa-IR', { minimumFractionDigits: 2 }) + ' تومان';
+    });
+}
 </script>
 @endsection

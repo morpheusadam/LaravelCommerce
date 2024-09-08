@@ -42,6 +42,24 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+     public function updateCart(Request $request)
+     {
+         $quantities = $request->input('quant');
+         foreach ($quantities as $cartId => $quantity) {
+             $cart = Cart::find($cartId);
+             if ($cart) {
+                 $cart->quantity = $quantity;
+                 $cart->amount = $cart->price * $quantity;
+                 $cart->save();
+             }
+         }
+ 
+         return redirect()->route('cart')->with('success', 'Cart updated successfully');
+     }
+
+     
     public function store(Request $request)
     {
         $this->validate($request,[
