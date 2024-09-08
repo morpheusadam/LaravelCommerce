@@ -317,17 +317,59 @@ class OrderController extends Controller
             return back()->with('error', 'سبد خرید شما خالی است.');
         }
     
-        // پاک کردن سبد خرید و کوپن‌ها از سشن
-        foreach ($cartItems as $item) {
-            $item->delete();
+        $order = new Order();
+        $order_data = $request->all();
+        $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
+        $order_data['user_id'] = $user->id;
+        $order_data['shipping_id'] = $request->shipping ?? 1; // تنظیم مقدار پیش‌فرض به 1
+        $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price')->first() ?? 200; // تنظیم مقدار پیش‌فرض به 200
+        $order_data['sub_total'] = Helper::totalCartPrice();
+        $order_data['quantity'] = Helper::cartCount();
+        if (session('coupon')) {
+            $order_data['coupon'] = session('coupon')['value'];
         }
+        if ($request->shipping) {
+            if (session('coupon')) {
+                $order_data['total_amount'] = Helper::totalCartPrice() + $shipping - session('coupon')['value'];
+            } else {
+                $order_data['total_amount'] = Helper::totalCartPrice() + $shipping;
+            }
+        } else {
+            if (session('coupon')) {
+                $order_data['total_amount'] = Helper::totalCartPrice() - session('coupon')['value'];
+            } else {
+                $order_data['total_amount'] = Helper::totalCartPrice();
+            }
+        }
+        $order_data['status'] = "new";
+        if (request('payment_method') == 'paypal') {
+            $order_data['payment_method'] = 'paypal';
+            $order_data['payment_status'] = 'paid';
+        } else {
+            $order_data['payment_method'] = 'cod';
+            $order_data['payment_status'] = 'Unpaid';
+        }
+        $order->fill($order_data);
+        $status = $order->save();
     
-        return redirect()->route('order.success')->with('success', 'با تشکر سفارش شما با موفقیت ثبت شد.');
+        if ($status) {
+            foreach ($cartItems as $item) {
+                $item->order_id = $order->id;
+                $item->save();
+            }
+            session()->forget('cart');
+            session()->forget('coupon');
+            request()->session()->flash('success', 'Your product successfully placed in order');
+            return redirect()->route('order.success')->with('order', $order);
+        } else {
+            return back()->with('error', 'Error, Please try again');
+        }
     }
     
     public function orderSuccess()
     {
-        return view('frontend.theme2.pages.order-success');
+        $order = session('order');
+        return view('frontend.theme2.pages.order-success', compact('order'));
     }
    
 }

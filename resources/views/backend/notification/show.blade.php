@@ -15,23 +15,31 @@
           مرکز اعلان‌ها
         </h6>
         @foreach(Auth::user()->unreadNotifications as $notification)
-    <a class="dropdown-item d-flex align-items-center" target="_blank" href="{{route('admin.notification',$notification->id)}}">
-                <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                    <i class="fas {{$notification->data['fas']}} text-white"></i>
-                    </div>
+        <a class="dropdown-item d-flex align-items-center" target="_blank" href="{{route('admin.notification',$notification->id)}}">
+            <div class="mr-3">
+                <div class="icon-circle bg-primary">
+                    @if(isset($notification->data['fas']))
+                        <i class="fas {{$notification->data['fas']}} text-white"></i>
+                    @else
+                        <i class="fas fa-info-circle text-white"></i> <!-- Default icon if 'fas' is not set -->
+                    @endif
                 </div>
-                <div>
-                    <div class="small text-gray-500">{{$notification->created_at->format('F d, Y h:i A')}}</div>
+            </div>
+            <div>
+                <div class="small text-gray-500">{{$notification->created_at->format('F d, Y h:i A')}}</div>
+                @if(isset($notification->data['title']))
                     <span class="@if($notification->unread()) font-weight-bold @else small text-gray-500 @endif">{{$notification->data['title']}}</span>
-                </div>
-            </a>
-            @if($loop->index+1==5)
-                @php 
-                    break;
-                @endphp
-            @endif
-        @endforeach
+                @else
+                    <span class="small text-gray-500">No title</span> <!-- Default text if 'title' is not set -->
+                @endif
+            </div>
+        </a>
+        @if($loop->index+1==5)
+            @php
+                break;
+            @endphp
+        @endif
+    @endforeach
 
         <a class="dropdown-item text-center small text-gray-500" href="{{route('all.notification')}}">نمایش همه اعلان‌ها</a>
       </div>

@@ -21,43 +21,64 @@
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-account-title"><span>*</span> نام</div>
                                             <div class="form-account-row">
-                                                <input class="input_second input_all" type="text" placeholder=" نام شما" name="first_name">
+                                                <input class="input_second input_all" type="text" placeholder=" نام شما" name="first_name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-account-title"><span>*</span> نام خانوادگی</div>
                                             <div class="form-account-row">
-                                                <input class="input_second input_all" type="text" placeholder=" نام خانوادگی شما" name="last_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-account-title"> نام شرکت (اختیاری)</div>
-                                            <div class="form-account-row">
-                                                <input class="input_second input_all" type="text" placeholder=" نام شرکت شما" name="company_name">
+                                                <input class="input_second input_all" type="text" placeholder=" نام خانوادگی شما" name="last_name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-account-title"><span>*</span> شماره تماس</div>
                                             <div class="form-account-row">
-                                                <input class="input_second input_all" type="text" placeholder=" شماره تماس شما" name="phone">
+                                                <input class="input_second input_all" type="text" placeholder=" شماره تماس شما" name="phone" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-account-title"><span>*</span> پست الکترونیک</div>
                                             <div class="form-account-row">
-                                                <input class="input_second input_all" type="text" placeholder=" پست الکترونیک شما" name="email">
+                                                <input class="input_second input_all" type="email" placeholder=" پست الکترونیک شما" name="email" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-account-title">آدرس پستی</div>
                                             <div class="form-account-row">
-                                                <textarea class="input_second input_all input_textarea text-right" rows="5" placeholder=" آدرس پستی خود را وارد نمایید" name="address"></textarea>
+                                                <textarea class="input_second input_all input_textarea text-right" rows="5" placeholder=" آدرس پستی خود را وارد نمایید" name="address1" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-account-title">آدرس پستی دوم (اختیاری)</div>
+                                            <div class="form-account-row">
+                                                <textarea class="input_second input_all input_textarea text-right" rows="5" placeholder=" آدرس پستی دوم خود را وارد نمایید" name="address2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-account-title">کد پستی (اختیاری)</div>
+                                            <div class="form-account-row">
+                                                <input class="input_second input_all" type="text" placeholder=" کد پستی شما" name="post_code">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-account-title">کشور</div>
+                                            <div class="form-account-row">
+                                                <input class="input_second input_all" type="text" placeholder=" کشور شما" name="country" value="Iran" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-account-title">روش پرداخت</div>
+                                            <div class="form-account-row">
+                                                <select class="input_second input_all" name="payment_method" required>
+                                                    <option value="cod">پرداخت در محل</option>
+                                                    <option value="paypal">زرین پال</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-account-agree">
                                                 <label class="checkbox-form checkbox-primary">
-                                                    <input type="checkbox" id="agree" name="agree">
+                                                    <input type="checkbox" id="agree" name="agree" required>
                                                     <span class="checkbox-check"></span>
                                                 </label>
                                                 <label for="agree"> گیرنده خودم هستم</label>

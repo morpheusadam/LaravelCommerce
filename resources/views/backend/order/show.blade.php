@@ -29,8 +29,8 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>${{$order->shipping->price}}</td>
-            <td>${{number_format($order->total_amount,2)}}</td>
+            <td>تومان{{$order->shipping->price}}</td>
+            <td>تومان{{number_format($order->total_amount,2)}}</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">{{$order->status}}</span>
@@ -80,15 +80,15 @@
                     </tr>
                     <tr>
                         <td>هزینه حمل و نقل</td>
-                        <td> : $ {{$order->shipping->price}}</td>
+                        <td> : تومان {{$order->shipping->price}}</td>
                     </tr>
                     <tr>
                       <td>کوپن</td>
-                      <td> : $ {{number_format($order->coupon,2)}}</td>
+                      <td> : تومان {{number_format($order->coupon,2)}}</td>
                     </tr>
                     <tr>
                         <td>مبلغ کل</td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td> : تومان {{number_format($order->total_amount,2)}}</td>
                     </tr>
                     <tr>
                         <td>روش پرداخت</td>

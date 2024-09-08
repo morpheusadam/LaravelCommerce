@@ -69,7 +69,7 @@
 													<ins><span>{{ number_format($cart->price, 2) }} <span>تومان</span></span></ins>
 												</div>
 											</td>
-											<td><input type="number" class="tedad" name="quant[{{ $key }}]" value="{{ $cart->quantity }}" /></td>
+											<td><input type="number" class="tedad" name="quant[{{ $key }}]" value="{{ $cart->quantity }}" data-price="{{ $cart->price }}" /></td>
 											<td class="price_alltd">{{ number_format($cart->amount, 2) }} <span>تومان</span></td>
 										</tr>
 									@endforeach
@@ -129,4 +129,14 @@
 		</div>
 	</div>
 </main>
+<script>
+document.querySelectorAll('.tedad').forEach(input => {
+    input.addEventListener('input', function() {
+        const price = parseFloat(this.dataset.price);
+        const quantity = parseInt(this.value);
+        const finalPrice = price * quantity;
+        this.closest('tr').querySelector('.price_alltd').innerHTML = finalPrice.toLocaleString('fa-IR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' <span>تومان</span>';
+    });
+});
+</script>
 @endsection

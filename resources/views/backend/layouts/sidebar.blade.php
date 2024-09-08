@@ -83,6 +83,23 @@
       </div>
   </li>
 
+  
+<!-- Orders -->
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderCollapse" aria-expanded="true" aria-controls="orderCollapse">
+      <i class="fas fa-shopping-cart"></i>
+      <span>سفارش‌ها</span>
+  </a>
+  <div id="orderCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">گزینه‌های سفارش:</h6>
+          <a class="collapse-item" href="{{route('order.index')}}">سفارش‌ها</a>
+          <a class="collapse-item" href="{{route('order.create')}}">افزودن سفارش</a>
+      </div>
+  </div>
+</li>
+
+
   {{-- Brands --}}
   <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true" aria-controls="brandCollapse">
