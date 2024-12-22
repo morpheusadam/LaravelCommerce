@@ -75,3 +75,4 @@ maji,+98 918 738 7314
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+yout erfan & ali dup to best quality and co ce and loc
