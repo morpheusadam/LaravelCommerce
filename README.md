@@ -1,114 +1,186 @@
-# LaravelCommerce
-
 <div align="center">
-  <a href="https://github.com/morpheusadam">
-    <img src="https://alirezap30web.ir/wp-content/uploads/2024/01/laravel-shoping-700x329.jpeg" alt="github-follow">
-  </a>
+
+# 🛒 LaravelCommerce
+
+### A full-featured, SEO-ready e-commerce platform built with **Laravel 11** — responsive storefront, powerful admin panel, real-time notifications, social login, and PayPal payments, with full **RTL / Persian** support.
+
+<p>
+  <img src="https://img.shields.io/github/license/morpheusadam/LaravelCommerce?style=for-the-badge&color=4c1" alt="License" />
+  <img src="https://img.shields.io/github/stars/morpheusadam/LaravelCommerce?style=for-the-badge&color=ffca28" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/morpheusadam/LaravelCommerce?style=for-the-badge&color=42a5f5" alt="Forks" />
+  <img src="https://img.shields.io/github/last-commit/morpheusadam/LaravelCommerce?style=for-the-badge&color=8e44ad" alt="Last commit" />
+  <img src="https://img.shields.io/github/repo-size/morpheusadam/LaravelCommerce?style=for-the-badge&color=e67e22" alt="Repo size" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Laravel-11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" />
+  <img src="https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Vue.js-2-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue" />
+  <img src="https://img.shields.io/badge/Bootstrap-UI-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+  <img src="https://img.shields.io/badge/Pusher-Realtime-300D4F?style=for-the-badge&logo=pusher&logoColor=white" alt="Pusher" />
+  <img src="https://img.shields.io/badge/PayPal-Payments-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal" />
+</p>
+
 </div>
 
-## فروشگاه ساخته شده با لاراول 11
+---
 
-### ویژگی‌ها:
-#### فرانت‌اند
+## 📖 Overview
 
-- طراحی واکنش‌گرا
-- سبد خرید، لیست علاقه‌مندی‌ها، نظرات محصول
-- کوپن‌ها و تخفیف‌ها
-- ویژگی‌های محصول: قیمت هزینه، قیمت تبلیغاتی، موجودی، اندازه...
-- وبلاگ: دسته‌بندی، برچسب، محتوا، صفحه وب
-- ماژول/افزونه: حمل و نقل، پرداخت، تخفیف، ...
-- مدیر آپلود: بنر، تصاویر،..
-- پشتیبانی از SEO: URL مشتری
-- مدیریت خبرنامه
-- فرم‌های تماس با اعلان‌های بلادرنگ (Laravel Pusher)
-- محصولات مرتبط، توصیه‌ها برای شما در دسته‌بندی‌های ما
-- فرم جستجوی محصول
-- پیاده‌سازی Laravel Socialite (فیسبوک، گوگل و توییتر) و ورود مشتری
-- اشتراک‌گذاری و دنبال کردن محصول از پلتفرم‌های اجتماعی مختلف...
-- یکپارچه‌سازی پرداخت (پی‌پال)
-- سیستم ردیابی سفارش
-- سیستم نظرات چند سطحی
-- و بسیاری دیگر...
+**LaravelCommerce** is a complete, production-style **online store / shopping cart** application built on the **Laravel 11** framework. It ships with a responsive customer-facing storefront, a feature-rich admin dashboard, role-based access control, blog/CMS capabilities, and a clean, modular codebase that's easy to extend.
 
-#### ادمین
+The platform covers the full retail workflow — product catalog with attributes (cost price, promo price, stock, size), cart, wishlist, coupons, product reviews, order tracking, and PDF invoice generation — plus **Laravel Socialite** social login (Facebook, Google, Twitter), **Laravel Pusher** real-time notifications and messaging, newsletter management, and **PayPal** payment integration. It is fully **RTL-aware** with first-class **Persian** language support, making it ideal for both LTR and RTL markets.
 
-- نقش‌ها و مجوزهای ادمین
-- مدیر محصول
-- مدیر رسانه با استفاده از مدیر فایل لاراول unisharp
-- مدیر بنر
-- مدیریت سفارشات
-- مدیریت دسته‌بندی
-- مدیریت برند
-- مدیریت حمل و نقل
-- مدیریت نظرات
-- مدیر وبلاگ، دسته‌بندی و برچسب
-- مدیریت کاربران
-- مدیریت کوپن
-- پیکربندی سیستم: تنظیمات ایمیل، اطلاعات فروشگاه، وضعیت نگهداری،...
-- نمودار خطی و نمودار دایره‌ای
-- تولید سفارش به صورت PDF
-- پیام و اعلان بلادرنگ
-- تنظیمات پروفایل
-- و بسیاری دیگر...
+It's a great starting point for **developers, agencies, and startups** who need a customizable Laravel e-commerce solution with an admin panel out of the box.
 
-#### داشبورد کاربر
+> 🔎 **Keywords:** laravel ecommerce, laravel 11 shop, online store, shopping cart, admin panel, rtl laravel, persian ecommerce, laravel socialite, pusher notifications, paypal payment, wishlist, coupons, product reviews.
 
-- مدیریت سفارشات
-- مدیریت نظرات
-- تنظیمات پروفایل
+---
 
-### راه‌اندازی
+## ✨ Features
 
-1. مخزن را کلون کنید و به آن وارد شوید
-2. در ترمینال خود `composer install` را اجرا کنید
-3. فایل `.env.example` را به `.env` تغییر نام دهید یا کپی کنید
-4. `php artisan key:generate` را اجرا کنید
-5. اطلاعات دیتابیس خود را در فایل `.env` تنظیم کنید
-6. اطلاعات Braintree خود را در فایل `.env` تنظیم کنید اگر می‌خواهید از پی‌پال استفاده کنید
-7. فایل دیتابیس (`database/e-shop.sql`) را به دیتابیس خود وارد کنید (`mysql,sql`)
-8. فرمان `php artisan storage:link` را اجرا کنید
-9. فایل `.env` را ویرایش کنید و APP_URL را حذف کنید
-10. `php artisan serve` را اجرا کنید یا از هاست مجازی استفاده کنید
-11. به `localhost:8000` در مرورگر خود بروید
-12. به `/admin` بروید اگر می‌خواهید به پنل ادمین دسترسی داشته باشید. ایمیل/رمز عبور ادمین: `admin@gmail.com`/`1111`. ایمیل/رمز عبور کاربر: 
-13. این پروژه برای ثبت نام و وارد شدن از ایمیل استفاده می‌کند. لطفا اطلاعات SMTP خود را در فایل `.env` وارد کنید.
+### 🖥️ Storefront
 
-توصیه میشود از seeders استفاده نکنید
-<p align="center">خیلی ممنون از وقتی که گذاشتید!!!</p>
+- 📱 **Responsive design** for desktop, tablet, and mobile.
+- 🛍️ **Cart, wishlist & product reviews** with multi-level comments.
+- 🏷️ **Coupons & discounts** and rich product attributes (cost price, promo price, stock, size, …).
+- 📝 **Blog/CMS**: categories, tags, content pages.
+- 🔌 **Modules**: shipping, payment, discounts, and more.
+- 🔍 **SEO-friendly URLs** and product search.
+- 📰 **Newsletter management** (Spatie Newsletter).
+- 🔔 **Real-time contact forms & notifications** via Laravel Pusher.
+- 🔁 **Related products & per-category recommendations**.
+- 👥 **Social login** with Laravel Socialite (Facebook, Google, Twitter).
+- 📤 **Social sharing & follow** across platforms.
+- 💳 **PayPal payment integration** and an **order tracking** system.
 
-### اسکرین‌شات‌ها
+### 🛠️ Admin Panel
+
+- 🔐 **Roles & permissions** for admins.
+- 📦 **Product, category, brand & shipping management**.
+- 🗂️ **Media manager** powered by UniSharp Laravel File Manager.
+- 🖼️ **Banner management** and **order management**.
+- 💬 **Review management** and **blog/category/tag manager**.
+- 👤 **User & coupon management**.
+- ⚙️ **System configuration**: email settings, store info, maintenance mode, …
+- 📊 **Line & pie charts** for analytics.
+- 🧾 **PDF order generation** (DomPDF).
+- 📨 **Real-time messages & notifications**.
+
+### 👤 Customer Dashboard
+
+- 📦 Order management
+- 💬 Review management
+- ⚙️ Profile settings
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=laravel,php,mysql,vue,bootstrap,sass,js" alt="Tech stack" />
+</p>
+
+| Layer | Technologies |
+| --- | --- |
+| Backend | Laravel 11, PHP, Laravel Sanctum, Tinker, Laravel UI |
+| Frontend | Blade, Vue 2, Bootstrap, jQuery, Sass, Laravel Mix |
+| Realtime | Pusher, Laravel Echo |
+| Payments | srmklive/paypal (PayPal) |
+| Media & PDF | UniSharp Laravel File Manager, Intervention Image, Barryvdh DomPDF |
+| Auth & Social | Laravel Socialite (Facebook, Google, Twitter) |
+| Marketing | Spatie Laravel Newsletter |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **PHP 8.x** with Composer
+- **MySQL** database
+- **Node.js & npm** (for frontend assets)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/morpheusadam/LaravelCommerce.git
+cd LaravelCommerce
+
+# 2. Install PHP & JS dependencies
+composer install
+npm install
+
+# 3. Create your environment file
+cp .env.example .env
+
+# 4. Generate the application key
+php artisan key:generate
+
+# 5. Configure your database (and SMTP / PayPal / Pusher) credentials in .env
+```
+
+### Database & Assets
+
+```bash
+# Import the provided database dump
+# (e.g. database/e-shop.sql) into your MySQL database
+
+# Link storage and build assets
+php artisan storage:link
+npm run dev
+
+# Serve the application
+php artisan serve
+```
+
+Open `http://localhost:8000` in your browser. Visit `/admin` to reach the admin panel.
+
+> ⚙️ Configure your **SMTP**, **PayPal**, and **Pusher** credentials in `.env` to enable email, payments, and real-time features. This project uses email for registration and login.
+
+---
+
+## 🗂️ Project Structure
+
+```text
+LaravelCommerce/
+├── app/
+│   ├── Http/Controllers/   # Product, Cart, Order, Admin, Auth, Post...
+│   ├── Models/             # Product, Category, Brand, Order, Coupon...
+│   ├── Events/             # MessageSent (realtime)
+│   └── Notifications/      # StatusNotification
+├── config/                 # paypal, pusher/broadcasting, lfm, newsletter...
+├── resources/              # Blade views & frontend assets
+├── routes/                 # web & api routes
+└── public/                 # compiled assets & screenshots
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Open an [issue](https://github.com/morpheusadam/LaravelCommerce/issues) or submit a pull request with new features, fixes, or improvements.
+
+## 📜 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+
+---
 
 <div align="center">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-2024-08-22-21_46_47.png" alt="Screenshot 1">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-about-us-2024-08-22-21_54_49.png" alt="Screenshot 2">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-admin-file-manager-2024-08-22-21_56_15.png" alt="Screenshot 3">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-admin-product-create-2024-08-22-21_57_02.png" alt="Screenshot 4">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-contact-2024-08-22-21_55_51.png" alt="Screenshot 5">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-product-grids-2024-08-22-21_47_12.png" alt="Screenshot 6">
-  <img src="public/screenshot/screencapture-127-0-0-1-8000-review-2024-08-22-21_56_28.png" alt="Screenshot 7">
+
+### 👤 Author — Morpheus Adam
+
+Web developer & cheerful hacker · PHP · Laravel · Go
+
+<p>
+  <a href="https://github.com/morpheusadam"><img src="https://img.shields.io/badge/GitHub-morpheusadam-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://sam.zeonic.me"><img src="https://img.shields.io/badge/Website-sam.zeonic.me-4c1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+  <a href="mailto:morpheusadam95@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+</p>
+
+⭐ **If LaravelCommerce helped you build your store, please give it a star!** ⭐
+
 </div>
-
-## تماس با نویسنده
-
-با هر سوالی با من تماس بگیرید!<br>
-ایمیل: morpheusadam95@gmail.com<br>
-واتساپ: +98 9185312051<br>
-تلگرام: [hesam_ahmadpour](https://t.me/morpheusadam)<br>
-لینکدین: [hesam-ahmadpour](https://www.linkedin.com/in/hesam-ahmadpour)<br>
-وبسایت: [sam.zeonic.me](https://sam.zeonic.me)
-
-## مجوز
-
-این پروژه تحت مجوز [MIT](https://sam.zeonic.me/licenses/mit/) است.<br>
-<hr>
-کپی‌رایت © 2023 [Prajwal R.](https://sam.zeonic.me/)
-
-
-## 📞 Contact Me
-<div align="center">
-    <a href="https://www.linkedin.com/in/hesam-ahmadpour" style="color: red; font-size: 20px; text-decoration: none;">LinkedIn</a> |
-    <a href="https://t.me/morpheusadam" style="color: red; font-size: 20px; text-decoration: none;">Telegram</a>
-</div>
-
-
-<p align="center">خیلی ممنون از وقتی که گذاشتید!!!</p>
